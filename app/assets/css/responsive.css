@@ -1,0 +1,43 @@
+@media (max-width: 835px) {
+    .sections {
+        grid-template-columns: 1fr !important;
+        padding: 3rem 1.5rem !important;
+    }
+    h2{
+        font-size: 4rem!important;
+    }
+}
+
+@media (max-width: 475px) {
+
+    .sections{
+        padding: 2rem 1rem !important;
+        width: 100%;
+    }
+
+    .content-res {
+        width: fit-content;
+    }
+
+    .hero-visual{
+        max-width: 100%;
+    }
+
+    .cform{
+        padding: 1rem!important;
+    }
+
+    .team-row {
+        flex-direction: column;
+    }
+
+    .hero-stat-row {
+        grid-template-columns: 1fr!important;
+    }
+    .nav-items{
+        justify-content: start!important;
+    }    
+    .nav-items-col:first-child{
+        padding-top: 15px;
+    }
+}
