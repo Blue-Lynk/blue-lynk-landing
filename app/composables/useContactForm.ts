@@ -1,4 +1,4 @@
-import type { ContactRequest, ContactResponse } from '../types/contact'
+import type { ContactRequest, ContactResponse } from '../../types/contact'
 import { ref } from 'vue'
 
 export const useContactForm = () => {
