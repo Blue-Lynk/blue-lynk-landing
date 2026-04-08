@@ -1,39 +1,42 @@
-import { readBody, createError, defineEventHandler } from 'h3'
+import { readBody, getRequestIP, createError, defineEventHandler } from 'h3'
 import { contactSchema } from '../utils/validateContact'
 import { sendContactEmail } from '../services/mailService'
+import { isSpam } from '../utils/spamProtection'
+import { checkRateLimit } from '../utils/rateLimit'
 
 export default defineEventHandler(async (event) => {
     try {
         const body = await readBody(event)
 
-        // Validación schema
         const parsed = contactSchema.safeParse(body)
 
         if (!parsed.success) {
-            throw createError({
-                statusCode: 400,
-                statusMessage: 'Datos inválidos'
-            })
+            throw createError({ statusCode: 400, statusMessage: 'Datos inválidos' })
         }
 
         const data = parsed.data
 
-        // Honeypot (anti-bot)
-        if (data.honeypot) {
+        // IP
+        const ip = getRequestIP(event) || 'unknown'
+
+        // Rate limit
+        const allowed = checkRateLimit(ip)
+        if (!allowed) {
+            throw createError({
+                statusCode: 429,
+                statusMessage: 'Demasiadas solicitudes'
+            })
+        }
+
+        // Spam protection
+        if (isSpam(data)) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Spam detectado'
             })
         }
 
-        // Envío de email
-        await sendContactEmail({
-            name: data.name,
-            email: data.email,
-            message: data.message,
-            company: data.company,
-            service: data.service
-        })
+        await sendContactEmail(data)
 
         return {
             success: true,
