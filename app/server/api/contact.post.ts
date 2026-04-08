@@ -1,4 +1,4 @@
-import { readBody, getRequestIP, createError, defineEventHandler } from 'h3'
+import { readBody, getRequestIP, createError } from 'h3'
 import { contactSchema } from '../utils/validateContact'
 import { sendContactEmail } from '../services/mailService'
 import { isSpam } from '../utils/spamProtection'
