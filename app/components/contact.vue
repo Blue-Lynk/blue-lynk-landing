@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import { useContactForm } from '../composables/useContactForm'
 
 const form = reactive({
   name: '',
@@ -55,16 +56,16 @@ const onSubmit = async () => {
   loading.value = true
 
   try {
-    await $fetch('/api/contact', {
-      method: 'POST',
-      body: {
-        name: `${form.name} ${form.lastname}`.trim(),
-        email: form.email,
-        message: form.message,
-        company: form.company,
-        service: form.service,
-        honeypot: form.honeypot
-      }
+
+    const { submit, loading, success, error } = useContactForm()
+
+    await submit({
+      name: `${form.name} ${form.lastname}`.trim(),
+      email: form.email,
+      message: form.message,
+      company: form.company,
+      service: form.service,
+      honeypot: form.honeypot
     })
 
     success.value = true
