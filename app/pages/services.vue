@@ -34,27 +34,27 @@ const services = [
     {
         id: 'sitios-web',
         title: 'SITIOS WEB',
-        subtitle: 'Presencia digital que convierte',
+        subtitle: 'Presencia digital orientada a resultados',
         icon: `<svg viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" />
                         <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>`,
-        description: 'Diseñamos y construimos sitios web modernos, rápidos y optimizados para conversiones. Cada pixel cuenta.',
-        shortDesc: 'Páginas web profesionales que atraen y convierten clientes.',
+        description: 'Diseñamos y desarrollamos sitios web modernos, rápidos y enfocados en conversión. Cada elemento está pensado para captar clientes y reforzar tu marca.',
+        shortDesc: 'Sitios web profesionales diseñados para atraer y convertir.',
         benefits: [
-            { title: 'Diseño Responsivo', desc: 'Se ve perfecto en cualquier dispositivo: desktop, tablet, móvil.' },
-            { title: 'Optimización SEO', desc: 'Posicionamiento en Google desde el día uno. Más visitas orgánicas.' },
-            { title: 'Velocidad Premium', desc: 'Carga rápida = menos abandono = más conversiones.' },
-            { title: 'Fácil de Mantener', desc: 'Sin código complicado. Puedes actualizar contenido tú mismo.' },
-            { title: 'Seguridad Incluida', desc: 'SSL, backups automáticos y protección contra ataques.' },
-            { title: 'Soporte Continuo', desc: '30 días gratis, luego planes de mantenimiento flexible.' }
+            { title: 'Diseño Responsivo', desc: 'Experiencia optimizada en todos los dispositivos.' },
+            { title: 'Optimización SEO', desc: 'Base técnica preparada para posicionamiento en buscadores.' },
+            { title: 'Alto Rendimiento', desc: 'Velocidad de carga optimizada para mejorar conversión.' },
+            { title: 'Gestión de Contenido', desc: 'Edición sencilla sin necesidad de conocimientos técnicos.' },
+            { title: 'Seguridad Integrada', desc: 'Protección, certificados SSL y backups automatizados.' },
+            { title: 'Soporte Inicial', desc: 'Acompañamiento posterior a la entrega para asegurar funcionamiento.' }
         ],
         useCases: [
-            'Portfolio profesional',
-            'Blog corporativo',
-            'Landing page de ventas',
-            'Sitio informativo',
-            'Micrositios'
+            'Sitios corporativos',
+            'Landing pages',
+            'Portfolios profesionales',
+            'Páginas institucionales',
+            'Micrositios de campaña'
         ],
         timeline: '2-3 semanas',
         cta: 'Crear mi sitio web'
@@ -62,27 +62,25 @@ const services = [
     {
         id: 'ecommerce',
         title: 'E-COMMERCE',
-        subtitle: 'Tienda online que vende',
+        subtitle: 'Plataformas de venta listas para escalar',
         icon: `<svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>`,
-        description: 'Tiendas online completas con productos, pagos peruanos, gestión de inventario y todo lo que necesitas para vender online.',
-        shortDesc: 'Plataforma de ventas online con pagos locales integrados.',
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>`,
         benefits: [
-            { title: 'Pasarelas Peruanas', desc: 'Yape, PagoEfectivo, Culqi, transferencias bancarias.' },
-            { title: 'Gestión de Productos', desc: 'Agrega, edita y organiza productos sin código.' },
-            { title: 'Control de Inventario', desc: 'Stock automático, alertas de bajo inventario, reportes.' },
-            { title: 'Carrito Inteligente', desc: 'Carrito abandonado, cupones, promociones, upsells.' },
-            { title: 'Gestión de Órdenes', desc: 'Dashboard de pedidos, estados, seguimiento de envíos.' },
-            { title: 'Análisis de Ventas', desc: 'Reportes en tiempo real: productos top, conversión, ingresos.' }
+            { title: 'Pagos Locales Integrados', desc: 'Integración con Yape, Culqi, PagoEfectivo y más.' },
+            { title: 'Gestión de Productos', desc: 'Administración simple de catálogo, precios y promociones.' },
+            { title: 'Control de Inventario', desc: 'Seguimiento automático de stock y alertas.' },
+            { title: 'Optimización de Conversión', desc: 'Flujos de compra diseñados para reducir abandono.' },
+            { title: 'Gestión de Pedidos', desc: 'Control completo de órdenes y estados.' },
+            { title: 'Analítica de Ventas', desc: 'Indicadores clave para toma de decisiones.' }
         ],
         useCases: [
-            'Moda y ropa',
-            'Electrónica',
-            'Cosméticos',
-            'Alimentos',
-            'Servicios'
+            'Retail y moda',
+            'Productos especializados',
+            'Venta de servicios',
+            'Negocios en expansión digital',
+            'Catálogos con pagos online'
         ],
         timeline: '4-8 semanas',
         cta: 'Lanzar mi tienda'
@@ -90,27 +88,27 @@ const services = [
     {
         id: 'integraciones',
         title: 'INTEGRACIONES API',
-        subtitle: 'Conecta tus herramientas',
+        subtitle: 'Conectividad entre tus sistemas',
         icon: `<svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>`,
-        description: 'Conectamos tu sitio o app con terceros: CRM, email marketing, herramientas de pago, redes sociales y más.',
-        shortDesc: 'Automatiza flujos conectando tus sistemas favoritos.',
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>`,
+        description: 'Integramos tus herramientas y plataformas para centralizar la información, automatizar procesos y mejorar la eficiencia operativa.',
+        shortDesc: 'Conecta tus sistemas y elimina procesos manuales.',
         benefits: [
-            { title: 'CRM Integration', desc: 'Sincroniza leads y contactos automáticamente con HubSpot, Pipedrive, etc.' },
-            { title: 'Email Marketing', desc: 'Integración con Mailchimp, Brevo, Klaviyo para campañas automáticas.' },
-            { title: 'Redes Sociales', desc: 'Publica automáticamente, sincroniza datos, tracking avanzado.' },
-            { title: 'Pagos y Facturación', desc: 'Stripe, PayPal, Culqi + emisión de comprobantes SUNAT.' },
-            { title: 'Herramientas Internas', desc: 'Google Sheets, Slack, Discord, Telegram notificaciones en tiempo real.' },
-            { title: 'APIs Personalizadas', desc: 'Conectamos cualquier sistema, sin importar qué tan específico sea.' }
+            { title: 'Integración con CRM', desc: 'Centraliza la gestión de clientes y leads.' },
+            { title: 'Automatización de Flujos', desc: 'Elimina tareas manuales entre sistemas.' },
+            { title: 'Conexión con Plataformas', desc: 'Integración con herramientas de marketing, pagos y más.' },
+            { title: 'Sincronización de Datos', desc: 'Información consistente en todos tus sistemas.' },
+            { title: 'APIs Personalizadas', desc: 'Conexión con sistemas específicos del negocio.' },
+            { title: 'Escalabilidad', desc: 'Preparado para integrar nuevas herramientas en el futuro.' }
         ],
         useCases: [
-            'Sincronización de datos',
-            'Automación de procesos',
-            'Notificaciones en tiempo real',
-            'Reportes integrados',
-            'Flujos sin fricción'
+            'Sincronización de clientes',
+            'Automatización de procesos internos',
+            'Integración con CRM',
+            'Conexión de plataformas externas',
+            'Flujos operativos automatizados'
         ],
         timeline: '2-4 semanas',
         cta: 'Integrar mis sistemas'
@@ -118,27 +116,27 @@ const services = [
     {
         id: 'desarrollo-soluciones',
         title: 'DESARROLLO DE SOLUCIONES',
-        subtitle: 'Apps a medida para tu negocio',
+        subtitle: 'Software adaptado a tu operación',
         icon: `<svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>`,
-        description: 'Desarrollamos aplicaciones personalizadas que resuelven problemas específicos de tu negocio. Desde apps web hasta herramientas internas.',
-        shortDesc: 'Soluciones digitales diseñadas específicamente para ti.',
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>`,
+        description: 'Creamos sistemas, plataformas y aplicaciones a medida que resuelven necesidades específicas y optimizan la operación de tu negocio.',
+        shortDesc: 'Software diseñado específicamente para tus procesos.',
         benefits: [
-            { title: 'Totalmente Personalizado', desc: 'Nada de templates. Código hecho 100% para tu negocio.' },
-            { title: 'Escalable', desc: 'Crece con tu empresa sin necesidad de rehacer todo.' },
-            { title: 'Arquitectura Sólida', desc: 'Código limpio y mantenible que dura años.' },
-            { title: 'Seguridad Enterprise', desc: 'Encriptación, autenticación, validaciones en cada paso.' },
-            { title: 'Dashboard y Reportes', desc: 'Visualiza tus datos de forma que realmente importa.' },
-            { title: 'API Robusta', desc: 'Interfaz para conectar con otros sistemas o apps móviles.' }
+            { title: 'Desarrollo a Medida', desc: 'Soluciones diseñadas según tus procesos reales.' },
+            { title: 'Arquitectura Escalable', desc: 'Preparado para crecer junto a tu negocio.' },
+            { title: 'Optimización Operativa', desc: 'Reducción de tiempos y errores manuales.' },
+            { title: 'Seguridad', desc: 'Protección de datos y control de accesos.' },
+            { title: 'Dashboards y Reportes', desc: 'Visualización clara de la información clave.' },
+            { title: 'Integración Total', desc: 'Compatible con otros sistemas existentes.' }
         ],
         useCases: [
-            'Herramientas internas',
-            'Apps de gestión',
-            'Plataformas SaaS',
-            'Aplicaciones móviles',
-            'Sistemas de reservas'
+            'Sistemas internos',
+            'Plataformas de gestión',
+            'MVPs de negocio',
+            'Sistemas de reservas',
+            'Herramientas operativas'
         ],
         timeline: '6-12 semanas',
         cta: 'Desarrollar mi solución'
@@ -146,27 +144,27 @@ const services = [
     {
         id: 'automatizacion',
         title: 'AUTOMATIZACIÓN',
-        subtitle: 'Ahorra tiempo, aumenta eficiencia',
+        subtitle: 'Procesos más eficientes, menos trabajo manual',
         icon: `<svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>`,
-        description: 'Eliminamos tareas repetitivas: emails automáticos, flujos de datos, reportes, alertas. Tu equipo se enfoca en lo importante.',
-        shortDesc: 'Automatiza procesos y ahorra horas de trabajo manual.',
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>`,
+        description: 'Automatizamos procesos operativos para reducir tareas manuales, minimizar errores y mejorar la eficiencia de tu equipo.',
+        shortDesc: 'Optimiza tu operación con automatización inteligente.',
         benefits: [
-            { title: 'Emails Automáticos', desc: 'Bienvenida, confirmaciones, recordatorios, newsletters sin intervención.' },
-            { title: 'Flujos de Datos', desc: 'Los datos se mueven automáticamente entre tus sistemas.' },
-            { title: 'Reportes Programados', desc: 'Reportes diarios, semanales o mensuales enviados automáticamente.' },
-            { title: 'Alertas Inteligentes', desc: 'Notificaciones cuando algo importante ocurra: bajo stock, nuevo pedido, etc.' },
-            { title: 'Webhooks y Triggers', desc: 'Acciones automáticas basadas en eventos específicos.' },
-            { title: 'Ahorro de Tiempo', desc: 'Recupera horas de tu equipo cada semana para tareas estratégicas.' }
+            { title: 'Automatización de Comunicaciones', desc: 'Emails, notificaciones y seguimientos automáticos.' },
+            { title: 'Flujos de Datos', desc: 'Movimiento automático de información entre sistemas.' },
+            { title: 'Reportes Automáticos', desc: 'Generación y envío programado de reportes.' },
+            { title: 'Alertas Inteligentes', desc: 'Notificaciones ante eventos clave.' },
+            { title: 'Integración de Procesos', desc: 'Conexión entre áreas operativas.' },
+            { title: 'Ahorro de Tiempo', desc: 'Reducción significativa de tareas repetitivas.' }
         ],
         useCases: [
-            'Email marketing',
             'Gestión de leads',
-            'Actualizaciones de inventario',
+            'Seguimiento de clientes',
             'Facturación automática',
-            'Notificaciones al cliente'
+            'Notificaciones operativas',
+            'Automatización interna'
         ],
         timeline: '1-2 semanas',
         cta: 'Automatizar procesos'
@@ -174,40 +172,40 @@ const services = [
     {
         id: 'soporte-ti',
         title: 'SOPORTE TI',
-        subtitle: 'Infraestructura que no falla',
+        subtitle: 'Continuidad y estabilidad operativa',
         icon: `<svg viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5z" />
                         <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>`,
-        description: 'Mantenimiento, monitoreo y soporte técnico continuo para que tu infraestructura funcione 24/7 sin interrupciones.',
-        shortDesc: 'Cuidamos tu infraestructura para que vos cuidés tu negocio.',
+        description: 'Brindamos soporte técnico continuo, mantenimiento y monitoreo para garantizar el correcto funcionamiento de tu infraestructura tecnológica.',
+        shortDesc: 'Soporte técnico para mantener tu operación activa.',
         benefits: [
-            { title: 'Monitoreo 24/7', desc: 'Vigilancia continua de servidores, uptime y performance.' },
-            { title: 'Mantenimiento Preventivo', desc: 'Updates, patches y mejoras antes de que causen problemas.' },
-            { title: 'Backups Automáticos', desc: 'Copias de seguridad diarias, semanales, listas para restaurar.' },
-            { title: 'Respuesta Rápida', desc: 'Si algo falla, lo arreglamos en minutos, no horas.' },
-            { title: 'Seguridad Actualizada', desc: 'Firewall, SSL, escaneo de vulnerabilidades, protección DDoS.' },
-            { title: 'Reportes de Performance', desc: 'Analítica detallada de uso, velocidad y salud del servidor.' }
+            { title: 'Monitoreo Continuo', desc: 'Supervisión constante de sistemas y servicios.' },
+            { title: 'Mantenimiento Preventivo', desc: 'Actualizaciones y mejoras periódicas.' },
+            { title: 'Backups Automatizados', desc: 'Protección y recuperación de información.' },
+            { title: 'Respuesta Ágil', desc: 'Atención rápida ante incidentes.' },
+            { title: 'Seguridad', desc: 'Protección ante vulnerabilidades y amenazas.' },
+            { title: 'Optimización', desc: 'Mejora continua del rendimiento.' }
         ],
         useCases: [
-            'Hosting administrado',
-            'Monitoreo de uptime',
-            'Gestión de seguridad',
-            'Optimización de performance',
-            'Soporte técnico'
+            'Gestión de servidores',
+            'Soporte técnico empresarial',
+            'Monitoreo de sistemas',
+            'Optimización de infraestructura',
+            'Seguridad tecnológica'
         ],
         timeline: 'Mensual/recurrente',
         cta: 'Contratar soporte'
     }
 ]
 
-function startDrag(e) {
+function startDrag(e: any) {
     isDragging.value = true
     startX.value = e.type.includes('touch') ? e.touches[0].clientX : e.clientX
     dragOffset.value = 0
 }
 
-function onDrag(e) {
+function onDrag(e: any) {
     if (!isDragging.value) return
 
     const currentXPos = e.type.includes('touch') ? e.touches[0].clientX : e.clientX
@@ -237,7 +235,7 @@ function prevService() {
     activeService.value = (activeService.value - 1 + services.length) % services.length
 }
 
-function goToService(index) {
+function goToService(index: number) {
     activeService.value = index
 }
 </script>
@@ -346,31 +344,50 @@ function goToService(index) {
     <section class="sections light">
         <div class="why-header">
             <p class="top-title text-center">Por qué elegirnos</p>
-            <h2 class="h2 text-center">VENTAJAS BLUE LYNK</h2>
+            <h2 class="h2 text-center">¿POR QUÉ BLUE LYNK?</h2>
         </div>
+
         <div class="advantages-grid">
+
             <div class="advantage-card">
                 <div class="adv-number">01</div>
-                <h3 class="h3">EXPERIENCIA REAL</h3>
-                <p class="p-card">Hemos trabajado en proyectos reales. Conocemos los retos de cada industria.</p>
+                <h3 class="h3">SOLUCIONES A MEDIDA</h3>
+                <p class="p-card">
+                    Cada proyecto se desarrolla desde cero según tus procesos y objetivos.
+                    No utilizamos plantillas ni soluciones genéricas.
+                </p>
             </div>
+
             <div class="advantage-card">
                 <div class="adv-number">02</div>
-                <h3 class="h3">SOLUCIONES ESCALABLES</h3>
-                <p class="p-card">Tu solución crece con tu negocio. Diseñamos para el futuro, no solo para hoy.</p>
+                <h3 class="h3">ENFOQUE EN NEGOCIO</h3>
+                <p class="p-card">
+                    Analizamos tu operación antes de desarrollar. Buscamos impacto real
+                    en eficiencia, control y crecimiento.
+                </p>
             </div>
+
             <div class="advantage-card">
                 <div class="adv-number">03</div>
-                <h3 class="h3">SOPORTE INCLUIDO</h3>
-                <p class="p-card">30 días gratis de soporte. Después, planes flexibles de mantenimiento.</p>
+                <h3 class="h3">SOLUCIONES ESCALABLES</h3>
+                <p class="p-card">
+                    Diseñamos herramientas preparadas para crecer contigo, evitando
+                    rehacer sistemas a medida que tu empresa evoluciona.
+                </p>
             </div>
+
             <div class="advantage-card">
                 <div class="adv-number">04</div>
-                <h3 class="h3">TRANSPARENCIA TOTAL</h3>
-                <p class="p-card">Presupuestos claros. Sin sorpresas. Te explicamos cada paso del camino.</p>
+                <h3 class="h3">ACOMPAÑAMIENTO CONTINUO</h3>
+                <p class="p-card">
+                    Brindamos soporte, mejoras y asesoría para asegurar que la solución
+                    siga generando valor después de su implementación.
+                </p>
             </div>
+
         </div>
     </section>
+
 
     <!-- CTA Section -->
     <section class="sections dark">
