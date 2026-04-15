@@ -18,10 +18,10 @@ const toggleFaq = (index: number) => {
 </script>
 
 <template>
-    <section class="questions" id="faq">
+    <section class="sections lightest" id="faq">
         <div class="faq-container">
-            <p class="sec-tag">Preguntas frecuentes</p>
-            <h2 class="sec-h">FAQ</h2>
+            <p class="top-title">Preguntas frecuentes</p>
+            <h2 class="h2">FAQ</h2>
             <p class="sec-sub">Todo lo que necesitas saber antes de empezar.</p>
 
             <div v-for="(item, index) in props.faqs" :key="index" class="faq-item"
@@ -43,22 +43,6 @@ const toggleFaq = (index: number) => {
 </template>
 
 <style scoped>
-.questions {
-    padding: 5rem 3rem;
-    display: grid;
-    gap: 4rem;
-    align-items: start;
-    background-color: var(--color-bg-lightest);
-    width: 100%;
-}
-
-@media (max-width: 835px) {
-    .questions {
-        padding: 3rem 1.5rem !important;
-    }
-}
-
-
 .faq-container {
     max-width: 780px;
     margin: 0 auto;
@@ -71,19 +55,6 @@ const toggleFaq = (index: number) => {
     transition: all 0.3s ease;
 }
 
-.faq-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 1.25rem 0;
-    cursor: pointer
-}
-
-.sec-h {
-    font-family: 'Bebas Neue', sans-serif;
-    color: var(--color-bg-darkest);
-    line-height: 1;
-    margin-bottom: .75rem
-}
-
 .faq-q {
     display: flex;
     justify-content: space-between;
@@ -91,20 +62,6 @@ const toggleFaq = (index: number) => {
     font-weight: 500;
     font-size: .95rem;
     color: var(--color-bg-darkest);
-}
-
-.sec-sub {
-    color: var(--color-text-on-light-muted);
-    max-width: 480px;
-    line-height: 1.7;
-    margin-bottom: 3rem
-}
-
-.sec-tag {
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: .5rem
 }
 
 .faq-icon {

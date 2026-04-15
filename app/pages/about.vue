@@ -1,507 +1,502 @@
 <script setup lang="ts">
-// @ts-ignore
-import { onMounted, onUnmounted, ref } from 'vue';
-import gsap from 'gsap';
-import { SplitText } from 'gsap/all';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
-
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-let lenis: Lenis | null = null;
-const activeIndex = ref<number | null>(0);
-
-// Altura del header de Nuxt — ajusta este valor al tuyo
-const HEADER_HEIGHT = 64; // px
-
-onMounted(() => {
-    lenis = new Lenis();
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis?.raf(time * 1000); });
-    gsap.ticker.lagSmoothing(0);
-
-    const headers = document.querySelectorAll<HTMLElement>(".nosotros-header");
-
-    // Entrada desde los lados
-    ScrollTrigger.create({
-        trigger: ".nosotros",
-        start: "top bottom",
-        end: "top top",
-        scrub: 1,
-        onUpdate: (self) => {
-            const p = self.progress;
-            gsap.set(headers[0], { x: `${(1 - p) * 100}vw` });
-            gsap.set(headers[1], { x: `${-(1 - p) * 100}vw` });
-            gsap.set(headers[2], { x: `${(1 - p) * 100}vw` });
-        }
-    });
-
-    // Pin + escala
-    ScrollTrigger.create({
-        trigger: ".nosotros",
-        start: "top top",
-        end: `+=${window.innerHeight * 2}`,
-        pin: true,
-        scrub: 1,
-        pinSpacing: false,
-        onUpdate: (self) => {
-            if (self.progress <= 0.5) {
-                const yP = self.progress * 2;
-                gsap.set(headers[0], { y: `${yP * 100}%` });
-                gsap.set(headers[2], { y: `${-yP * 100}%` });
-            } else {
-                gsap.set(headers[0], { y: `100%` });
-                gsap.set(headers[2], { y: `-100%` });
-
-                const scaleP = (self.progress - 0.5) * 0.5 * 2;
-                const minScale = window.innerWidth <= 768 ? 0.25 : 0.1;
-                const scale = 1 - scaleP * (1 - minScale);
-                headers.forEach(h => gsap.set(h, { scale }));
-            }
-        },
-    });
-
-    const profileImagesContainer = document.querySelector<HTMLElement>(".profile-images");
-    const profileImages = document.querySelectorAll<HTMLElement>(".profile-images .img");
-    const nameElements = document.querySelectorAll<HTMLElement>(".profile-names .name");
-    const nameHeadings = document.querySelectorAll<HTMLElement>(".profile-names .name h2");
-
-    // 1. Preparar SplitText y estados iniciales
-    nameElements.forEach((el, i) => {
-        const h2 = el.querySelector("h2");
-        const p = el.querySelector("p");
-
-        if (h2) {
-            const split = new SplitText(h2, { type: "chars" });
-            gsap.set(split.chars, { y: "105%", opacity: 0 });
-            (el as any)._splitChars = split.chars;
-        }
-
-        if (p) {
-            gsap.set(p, { y: 20, opacity: 0 });
-        }
-    });
-
-    const showMember = (index: number) => {
-        const el = nameElements[index];
-        const chars = (el as any)._splitChars;
-        const p = el.querySelector("p");
-
-        const tl = gsap.timeline();
-        tl.to(chars, {
-            y: "0%",
-            opacity: 1,
-            duration: 0.8,
-            ease: "expo.out",
-            stagger: 0.03
-        })
-            .to(p, {
-                y: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: "power2.out"
-            }, "-=0.4");
-    };
-
-    const hideMember = (index: number) => {
-        const el = nameElements[index];
-        const chars = (el as any)._splitChars;
-        const p = el.querySelector("p");
-
-        gsap.to(chars, { y: "-105%", opacity: 0, duration: 0.4, ease: "power2.in" });
-        gsap.to(p, { y: -10, opacity: 0, duration: 0.3 });
-    };
-
-    // 3. Eventos
-    profileImages.forEach((img, i) => {
-        const handleInteraction = () => {
-            if (activeIndex.value === i) return;
-            if (activeIndex.value !== null) hideMember(activeIndex.value);
-
-            activeIndex.value = i;
-            showMember(i);
-
-            gsap.to(profileImages, { scale: 0.8, opacity: 0.5, duration: 0.4 });
-            gsap.to(img, { scale: 1.2, opacity: 1, duration: 0.4, ease: "back.out(2)" });
-        };
-
-        img.addEventListener("mouseenter", handleInteraction);
-        img.addEventListener("touchstart", (e) => {
-            // e.preventDefault(); // Opcional, para evitar scroll accidental
-            handleInteraction();
-        });
-    });
-
-    // Mostrar el primero por defecto
-    showMember(0);
-});
-
-onUnmounted(() => {
-    lenis?.destroy();
-    ScrollTrigger.getAll().forEach(t => t.kill());
-});
+// About Page - Version 2: Diseño Propuesto (Moderno y Atrevido)
 </script>
 
 <template>
-    <section class="hero-container sections">
+    <!-- Hero -->
+    <section class="hero hero-section">
+        <div class="hero-glow"></div>
         <div class="hero-content">
-            <div class="content-res">
-                <p class="hero-tag">Soluciones digitales · Lima, Perú</p>
-                <h1 class="hero-h">NOSOTROS <em>SABEMOS</em><br>LO QUE NECESITAS</h1>
-                <p class="hero-p">Conoce al equipo detrás de nuestras soluciones digitales innovadoras en Lima,
-                    Perú.</p>
-                <div class="hero-btns">
-                    <UiBtnLight variant="btn-primary">Contáctanos</UiBtnLight>
+            <p class="top-title text-sm-center">Quiénes somos</p>
+            <h2 class="hero-h h1 text-sm-center">
+                Nostros <em>sabemos</em> <br>
+                lo que necesitas
+            </h2>
+            <p class="light-text text-sm-center md">
+                Porque tu negocio merece crecer sin complicaciones. <br class="responsive-ipad">
+                Elige claridad, elige resultados, elige Blue Lynk.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ticker -->
+    <Ticker :items="[
+        { text: 'Desarrollo web a medida', highlight: true },
+        { text: 'Aplicaciones móviles' },
+        { text: 'Integraciones API', highlight: true },
+        { text: 'E-commerce' },
+        { text: 'SaaS' },
+        { text: 'Mantenimiento y soporte', highlight: true },
+        { text: 'Hosting' },
+    ]" />
+
+    <!-- Filosofía -->
+    <section class="sections divided light">
+        <div class="philosophy-text">
+            <p class="top-title">Por qué existimos</p>
+            <h2 class="h2">FILOSOFÍA</h2>
+            <p class="sec-sub">En Perú hay miles de empresas que pierden clientes diarios por no tener presencia
+                digital real. Vimos eso y decidimos cambiar el juego.</p>
+            <div class="philosophy-checks">
+                <div class="philosophy-point">
+                    <div class="philosophy-icon">✓</div>
+                    <div>
+                        <h3 class="h3 dark-text">Sin excusas de presupuesto</h3>
+                        <p class="p-card">Soluciones escalables que crecen con tu negocio, no al revés.</p>
+                    </div>
+                </div>
+                <div class="philosophy-point">
+                    <div class="philosophy-icon">✓</div>
+                    <div>
+                        <h3 class="h3 dark-text">Tecnología transparente</h3>
+                        <p class="p-card">Te explicamos qué hacemos, por qué y cuál es el resultado real.</p>
+                    </div>
+                </div>
+                <div class="philosophy-point">
+                    <div class="philosophy-icon">✓</div>
+                    <div>
+                        <h3 class="h3 dark-text">Socios, no proveedores</h3>
+                        <p class="p-card">Tu éxito es nuestro éxito. Crecemos juntos en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="philosophy-visual">
+            <div class="philosophy-box">
+                <div class="philosophy-blob">
+                    <div class="philosophy-inner">
+                        <p class="dark-text h3 text-center">
+                            "Hacemos que la tecnología trabaje para tu negocio"
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="nosotros">
-        <div class="nosotros-header">
-            <img src="/images/conocenos-text.svg" alt="Texto Nosotros">
-        </div>
-        <div class="nosotros-header">
-            <img src="/images/conocenos-text.svg" alt="Texto Nosotros">
-        </div>
-        <div class="nosotros-header">
-            <img src="/images/conocenos-text.svg" alt="Texto Nosotros">
+    <!-- Pilares -->
+    <section class="sections darkest">
+        <p class="top-title">Cómo Operamos</p>
+        <h2 class="h2">NUESTROS PILARES</h2>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-number">01</div>
+                <h3 class="h3 bright-text">VELOCIDAD</h3>
+                <p class="light-text">Entregamos resultados en semanas, no meses. Sin comprometer calidad ni
+                    estabilidad.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-number">02</div>
+                <h3 class="h3 bright-text">CLARIDAD</h3>
+                <p class="light-text">Explicamos todo en español simple. Cero jerga técnica que no entiendas.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-number">03</div>
+                <h3 class="h3 bright-text">RESULTADOS</h3>
+                <p class="light-text">Medimos lo que importa: conversión, ingresos, satisfacción real.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-number">04</div>
+                <h3 class="h3 bright-text">SOPORTE</h3>
+                <p class="light-text">No desaparecemos después de entregar. Estamos aquí para ti siempre.</p>
+            </div>
         </div>
     </section>
 
-    <section class="about-section">
-        <div class="about-grid">
-            <div class="about-intro">
-                <span class="section-label">Quiénes somos</span>
-                <h2 class="about-title">Construimos experiencias digitales que perduran.</h2>
+    <!-- Team  -->
+    <!-- <section class="sections light">
+        <p class="top-title">El corazón del proyecto</p>
+        <h2 class="h2">EL EQUIPO</h2>
+        <div class="team-spotlight">
+            <div class="team-member">
+                <div class="member-header">
+                    <div class="member-avatar daniel">D</div>
+                </div>
+                <div class="member-body">
+                    <h3 class="h3">DANIEL C.</h3>
+                    <p class="h4" style="color: var(--color-primary); margin-bottom: 1rem;">Creative Director & PM</p>
+                    <p class="p-card">Diseñador y estratega. Obsesionado con convertir ideas en productos que realmente
+                        funcionen. Especializado en UX/UI y experiencia del usuario.</p>
+                    <div class="member-tags">
+                        <span class="tag">Diseño</span>
+                        <span class="tag">Estrategia</span>
+                        <span class="tag">UX</span>
+                    </div>
+                </div>
             </div>
-            <div class="about-body">
-                <p>Somos un equipo de diseñadores y desarrolladores enfocados en crear productos digitales que
-                    combinan funcionalidad, diseño y estrategia. Nos interesa construir soluciones que no solo se
-                    vean bien, sino que tengan un impacto real en quienes las usan.</p>
-                <p>Trabajamos de cerca con cada cliente para entender a fondo sus objetivos y necesidades. Más que
-                    ejecutar ideas, buscamos aportar criterio y construir productos que realmente funcionen en el
-                    mundo real.</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">+2</span>
-                        <span class="stat-label">Proyectos entregados</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Años de experiencia</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Clientes satisfechos</span>
+            <div class="team-member">
+                <div class="member-header">
+                    <div class="member-avatar nicolas">N</div>
+                </div>
+                <div class="member-body">
+                    <h3 class="h3">NICOLAS A.</h3>
+                    <p class="h4" style="color: var(--color-primary); margin-bottom: 1rem;">Tech Lead & Developer</p>
+                    <p class="p-card">Full-stack engineer con 8+ años de experiencia. Especializado en arquitecturas
+                        escalables, APIs robustas y soluciones que aguanten cualquier carga.</p>
+                    <div class="member-tags">
+                        <span class="tag">Backend</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">DevOps</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- Timeline -->
+    <!-- <section class="sections darkest">
+        <p class="top-title">Nuestra evolución</p>
+        <h2 class="h2">HITO POR HITO</h2>
+        <div class="milestones">
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-text">
+                    <p class="milestone-year h4">2026</p>
+                    <h3 class="h3 bright-text">Blue Lynk nace</h3>
+                    <p class="light-text">Una idea simple: eliminar la brecha digital de PYMEs peruanas con tecnología
+                        moderna y accesible.</p>
+                </div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-text">
+                    <p class="milestone-year h4">2026</p>
+                    <h3 class="h3 bright-text">Primeros éxitos</h3>
+                    <p class="light-text">Completamos proyectos en retail, salud y educación. Los clientes confirman:
+                        esto funciona.</p>
+                </div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-text">
+                    <p class="milestone-year h4">Ahora</p>
+                    <h3 class="h3 bright-text">Escalando</h3>
+                    <p class="light-text">Ayudando a más empresas peruanas a crecer, una transformación digital a la
+                        vez.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Process -->
+    <section class="sections light">
+        <p class="top-title">Cómo trabajamos contigo</p>
+        <h2 class="h2">NUESTRO PROCESO</h2>
+        <div class="svc-grid">
+            <div class="svc-card text-center">
+                <div class="process-icon">1</div>
+                <h3 class="h3">DESCUBRIMIENTO</h3>
+                <p class="p-card">Entendemos tu negocio profundamente: qué necesitas, cuál es tu presupuesto, cuáles son
+                    tus miedos.</p>
+            </div>
+            <div class="svc-card text-center">
+                <div class="process-icon">2</div>
+                <h3 class="h3">PROPUESTA</h3>
+                <p class="p-card">Te damos una solución clara, con timeline, presupuesto y expectativas realistas.</p>
+            </div>
+            <div class="svc-card text-center">
+                <div class="process-icon">3</div>
+                <h3 class="h3">CONSTRUCCIÓN</h3>
+                <p class="p-card">Construimos, te mostramos progreso semanal, recopilamos feedback y ajustamos.</p>
+            </div>
+            <div class="svc-card text-center">
+                <div class="process-icon">4</div>
+                <h3 class="h3">LANZAMIENTO</h3>
+                <p class="p-card">Tu producto sale al mundo. Nosotros estamos aquí para asegurar que todo funcione
+                    perfecto.</p>
+            </div>
+            <div class="svc-card text-center">
+                <div class="process-icon">5</div>
+                <h3 class="h3">CRECIMIENTO</h3>
+                <p class="p-card">Soporte continuo, mejoras, escalabilidad. Tu éxito es un viaje, no un destino.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="team">
-        <aside class="profile-images">
-            <div class="img"><img src="/images/person.webp" alt="Nicolas Acevedo"></div>
-            <div class="img"><img src="/images/person.webp" alt="Daniel Carbone"></div>
-        </aside>
-        <br>
-        <aside class="profile-names">
-            <div class="name">
-                <h2>Nicolas Acevedo</h2>
-                <p>Estratega de producto y especialista en interfaces que convierten.</p>
-            </div>
-            <div class="name">
-                <h2>Daniel Carbone</h2>
-                <p>Desarrollador con enfoque en diseño, creatividad y soluciones. Me interesa crear productos digitales
-                    que se sientan bien, funcionen mejor y tengan un propósito claro. <br> Siempre buscando ese punto
-                    donde la idea, la estética y la tecnología encajan perfecto.</p>
-            </div>
-        </aside>
+    <!-- Final -->
+    <section class="sections dark">
+        <div class="final-cta">
+            <h2 class="h2 bright-text text-center">¿Listos para <em>crecer</em> juntos?</h2>
+            <p class="light-text text-center md">
+                Cuéntanos sobre tu proyecto. Te responderemos en 24 horas.
+            </p>
+            <UiBtnLight variant="btn-primary">Empezar ahora</UiBtnLight>
+        </div>
     </section>
-
-    <Contact />
 </template>
 
 <style scoped>
-.team {
-    position: relative;
-    width: 100vw;
-    background: var(--color-bg-light);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    overflow: hidden;
-    padding: 4rem 0;
-}
-
-.profile-images {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    z-index: 20;
-}
-
-.img {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    overflow: visible;
-}
-
-.img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.profile-names {
-    position: relative;
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.name h2 {
-    font-size: clamp(3rem, 12vw, 15rem);
-    line-height: 0.9;
-    margin: 0;
-    color: var(--color-bg-dark);
-    text-align: center;
-    overflow: hidden;
-}
-
-.name {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-
-
-.name p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    text-align: center;
-    color: var(--color-primary);
-    margin-top: 1rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-}
-
-:deep(.letter) {
-    display: inline-block;
-    will-change: transform;
-}
-
-.img {
-    transition: transform 0.3s ease;
-    z-index: 10;
-}
-
-@media (max-width: 768px) {
-    .team {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 15vh;
-    }
-
-    .profile-images {
-        gap: 15px;
-    }
-
-    .img {
-        width: 65px;
-        height: 65px;
-    }
-
-    .profile-names {
-        height: 250px;
-        margin-top: 2rem;
-    }
-
-    .name h2 {
-        font-size: 3.5rem;
-    }
-
-    .name p {
-        font-size: 0.9rem;
-        padding: 0 2rem;
-        max-width: 100%;
-    }
-}
-
-.hero-container {
-    background: var(--color-bg-darkest);
-    min-height: 100vh;
-    padding: 0 5rem 0 5rem;
-    align-items: center;
-    display: flex;
-}
-
-.hero-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.content-res {
-    display: grid;
-    gap: 1.5rem;
-    text-align: right;
-}
-
-.hero-tag {
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--color-primary);
-}
-
-.hero-h {
-    line-height: .9;
-    color: var(--color-bg-light);
-    margin-bottom: .5rem;
-}
-
-.hero-h em {
-    color: var(--color-primary);
-}
-
-.hero-p {
-    line-height: 1.75;
-    color: var(--color-text-on-dark-muted);
-    margin-bottom: .5rem;
-}
-
-.nosotros {
-    background: var(--color-bg-darkest);
-    position: relative;
-    width: 100%;
-    height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.nosotros-header {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    background: var(--color-bg-darkest);
-    will-change: transform;
-}
-
-.nosotros-header img {
-    object-fit: contain;
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.nosotros-header:nth-child(1),
-.nosotros-header:nth-child(3) {
-    transform: translateX(100vw);
-}
-
-.nosotros-header:nth-child(2) {
-    transform: translateX(-100vw);
-    z-index: 2;
-}
-
-@media (min-width: 768px) {
-    .nosotros-header {
-        padding: 0 1rem;
-    }
-}
-
-.about-section {
-    margin-top: calc(100svh * 2);
-    background: var(--color-bg-dark);
-    padding: 5rem 3rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-}
-
-.about-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
+/* HERO */
+.hero-section {
     grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+/* FILOSOFIA */
+.philosophy-text {
+    max-width: 500px;
+}
+
+.philosophy-checks{
+    margin-top: 2rem; 
+    display: grid; 
+    gap: 1.5rem;
+}
+
+.philosophy-point {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.philosophy-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.philosophy-point .p-card {
+    color: var(--color-text-on-light-muted);
+}
+
+.philosophy-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.philosophy-box {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, rgba(90, 140, 255, 0.1) 100%);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px solid rgba(90, 140, 255, 0.2);
+}
+
+.philosophy-blob {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(90, 140, 255, 0.15) 0%, rgba(90, 140, 255, 0.05) 100%);
+}
+
+.philosophy-inner {
+    padding: 2rem;
+}
+
+/* PILARES */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.pillar-card {
+    background: rgba(81, 112, 255, 0.12);
+    border: 1px solid rgba(81, 112, 255, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-primary);
+}
+
+.pillar-number {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--color-text-vivid);
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.pillar-card h3 {
+    padding: 1rem 0;
+}
+
+.pillar-card p {
+    color: var(--color-text-on-dark-muted);
+}
+
+/* TEAM */
+.team-spotlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
 }
 
-@media (min-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr 1.4fr;
-        gap: 5rem;
-        align-items: start;
+.team-member {
+    background: var(--color-bg-lightest);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+}
+
+.member-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: white;
+    border: 4px solid white;
+}
+
+.member-avatar.daniel {
+    background: linear-gradient(135deg, #5A8CFF, #3D5AFE);
+}
+
+.member-avatar.nicolas {
+    background: linear-gradient(135deg, #3D5AFE, #1F36A8);
+}
+
+.member-body {
+    padding: 2rem;
+}
+
+.member-body h3 {
+    color: var(--color-bg-darkest);
+    margin-bottom: 0.5rem;
+}
+
+.member-body .p-card {
+    color: var(--color-text-on-light-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.member-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: var(--color-bg-light);
+    color: var(--color-primary);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Timeline */
+.milestones {
+    display: grid;
+    gap: 3rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.milestones::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--color-primary), transparent);
+}
+
+.milestone {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    position: relative;
+}
+
+.milestone-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 4px solid var(--color-bg-darkest);
+    position: absolute;
+    left: -12.5px;
+    top: 0.5rem;
+}
+
+.milestone-text {
+    padding-top: 0.5rem;
+}
+
+.milestone-year {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.milestone-text .bright-text {
+    margin-bottom: 0.75rem;
+}
+
+/* Proceso */
+.process-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-bg-lightest);
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem;
+}
+
+/* FINAL */
+.final-cta {
+    text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 835px) {
+    .team-spotlight {
+        grid-template-columns: 1fr;
     }
 }
 
-.section-label {
-    display: inline-block;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--color-bg-lightest);
-    margin-bottom: 1.25rem;
-}
+@media (max-width: 475px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
 
-.about-title {
-    color: var(--color-bg-light);
-    line-height: 1.1;
-    margin: 0;
-    font-size: 5rem;
-}
+    .milestones::before {
+        left: -1px;
+    }
 
-.about-body p {
-    color: var(--color-text-on-dark-muted);
-    line-height: 1.8;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    margin-bottom: 1.25rem;
-}
-
-.about-body p:last-of-type {
-    margin-bottom: 2.5rem;
-}
-
-.about-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-bg-light) 12%, transparent);
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.stat-number {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--color-text-on-dark-muted);
-    line-height: 1;
-    font-family: var(--font-title);
-}
-
-.stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-text-on-dark-muted);
+    .milestone-dot {
+        left: -9.5px;
+    }
 }
 </style>
