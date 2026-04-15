@@ -94,26 +94,25 @@ const homeFaqs = [
 
 <template>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero sections">
         <div class="hero-glow"></div>
-        <div>
-            <p class="top-title">Soluciones digitales · Lima, Perú</p>
-            <h1 class="hero-h h1">TU EMPRESA<br><em>LISTA</em><br>PARA EL<br>FUTURO</h1>
+        <div class="content-res">
+            <p class="hero-tag">Soluciones digitales · Lima, Perú</p>
+            <h1 class="hero-h">TU EMPRESA<br><em>LISTA</em><br>PARA EL<br>FUTURO</h1>
         </div>
-        <UiBtnLight variant="btn-primary" class="responsive-mobil">Ver servicios</UiBtnLight>
-        <div class="hero-visual ">
-            <div class="hero-stat-row responsive-ipad">
-                <div class="stats-card">
+        <div class="hero-visual">
+            <div class="hero-stat-row">
+                <div class="hstat">
                     <div class="hstat-num">2<span>+</span></div>
-                    <div class="hstat-label h4">Proyectos entregados</div>
+                    <div class="hstat-label">Proyectos entregados</div>
                 </div>
-                <div class="stats-card">
+                <div class="hstat">
                     <div class="hstat-num">100<span>%</span></div>
-                    <div class="hstat-label h4">Clientes satisfechos</div>
+                    <div class="hstat-label">Clientes satisfechos</div>
                 </div>
             </div>
-            <div class="stats-card hero-card-2">
-                <p class="sec-sub">Diseñamos y construimos herramientas digitales que hacen crecer a las PYMEs
+            <div class="hstat-wide">
+                <p class="hero-p">Diseñamos y construimos herramientas digitales que hacen crecer a las PYMEs
                     peruanas —
                     rápido, bonito y sin complicaciones.</p>
                 <div class="hero-btns">
@@ -136,9 +135,9 @@ const homeFaqs = [
     ]" />
 
     <!-- Services Section -->
-    <section class="sec sections light" id="servicios">
-        <p class="top-title">Qué hacemos</p>
-        <h2 class="h2">NUESTROS SERVICIOS</h2>
+    <section class="sec sections" id="servicios">
+        <p class="sec-tag">Qué hacemos</p>
+        <h2 class="sec-h">NUESTROS<br>SERVICIOS</h2>
         <p class="sec-sub">Soluciones tecnológicas pensadas para negocios reales. Sin tecnicismos, con resultados.
         </p>
         <div class="svc-grid">
@@ -147,9 +146,8 @@ const homeFaqs = [
                         <rect x="2" y="3" width="20" height="14" rx="2" />
                         <path d="M8 21h8M12 17v4" />
                     </svg></div>
-                <h3 class="h3">SITIOS WEB</h3>
-                <p class="p">Páginas rápidas y modernas que convierten visitas en clientes. Diseño exclusivo y
-                    optimizado.</p>
+                <h3>SITIOS WEB</h3>
+                <p>Páginas rápidas y modernas que convierten visitas en clientes. Diseño exclusivo y optimizado.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -157,8 +155,8 @@ const homeFaqs = [
                         <circle cx="20" cy="21" r="1" />
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                     </svg></div>
-                <h3 class="h3">E-COMMERCE</h3>
-                <p class="p">Tiendas online con pasarelas de pago peruanas, gestión de inventario y catálogos fáciles de
+                <h3>E-COMMERCE</h3>
+                <p>Tiendas online con pasarelas de pago peruanas, gestión de inventario y catálogos fáciles de
                     manejar.</p>
             </div>
             <div class="svc-card">
@@ -166,15 +164,15 @@ const homeFaqs = [
                         <path d="M12 2L2 7l10 5 10-5-10-5z" />
                         <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg></div>
-                <h3 class="h3">INTEGRACIONES</h3>
-                <p class="p">Ni idea que poner.</p>
+                <h3>INTEGRACIONES</h3>
+                <p>Ni idea que poner.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
                         <path d="M18 20V10M12 20V4M6 20v-6" />
                     </svg></div>
-                <h3 class="h3">DESARROLLO DE SOLUCIONES</h3>
-                <p class="p">Tampoco se que poner.</p>
+                <h3>DESARROLLO DE SOLUCIONES</h3>
+                <p>Tampoco se que poner.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -182,85 +180,85 @@ const homeFaqs = [
                         <path
                             d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                     </svg></div>
-                <h3 class="h3">AUTOMATIZACIÓN</h3>
-                <p class="p">Eliminamos tareas repetitivas con flujos automáticos: emails, reportes, alertas y más.</p>
+                <h3>AUTOMATIZACIÓN</h3>
+                <p>Eliminamos tareas repetitivas con flujos automáticos: emails, reportes, alertas y más.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
                         <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                     </svg></div>
-                <h3 class="h3">SOPORTE TI</h3>
-                <p class="p">Mantenimiento, seguridad y soporte técnico para que tu infraestructura nunca pare.</p>
+                <h3>SOPORTE TI</h3>
+                <p>Mantenimiento, seguridad y soporte técnico para que tu infraestructura nunca pare.</p>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section class="sections darkest" id="portafolio">
-        <p class="top-title">Trabajo reciente</p>
-        <h2 class="h2">PORTAFOLIO</h2>
+    <section class="port sections" id="portafolio">
+        <p class="sec-tag">Trabajo reciente</p>
+        <h2 class="sec-h">PORTAFOLIO</h2>
         <p class="sec-sub">Proyectos que transformaron negocios reales.</p>
         <div class="port-grid">
             <div class="port-card">
                 <div class="port-thumb t1">BL</div>
                 <div class="port-info">
-                    <p class="port-tag vivid-text">E-Commerce · Retail</p>
-                    <h3 class="port-name h3 bright-text">MODA PERÚ STORE</h3>
-                    <p class="bright-text">Tienda online con +200 productos, pagos con Yape y PagoEfectivo, entrega en
+                    <p class="port-tag">E-Commerce · Retail</p>
+                    <h3 class="port-name">MODA PERÚ STORE</h3>
+                    <p class="port-desc">Tienda online con +200 productos, pagos con Yape y PagoEfectivo, entrega en
                         todo Lima.</p>
                 </div>
             </div>
             <div class="port-card">
                 <div class="port-thumb t2">BL</div>
                 <div class="port-info">
-                    <p class="port-tag vivid-text">Sistema · Salud</p>
-                    <h3 class="port-name h3 bright-text">CLÍNICA DIGITAL</h3>
-                    <p class="light-text">Plataforma de citas online, historial de pacientes y facturación
+                    <p class="port-tag">Sistema · Salud</p>
+                    <h3 class="port-name">CLÍNICA DIGITAL</h3>
+                    <p class="port-desc">Plataforma de citas online, historial de pacientes y facturación
                         electrónica SUNAT.</p>
                 </div>
             </div>
             <div class="port-card">
                 <div class="port-thumb t3">BL</div>
                 <div class="port-info">
-                    <p class="port-tag vivid-text">Web · Educación</p>
-                    <h3 class="port-name h3 bright-text">ACADEMIA LYNK</h3>
-                    <p class="light-text">Sitio web con landing de conversión, blog SEO y formulario de inscripción
+                    <p class="port-tag">Web · Educación</p>
+                    <h3 class="port-name">ACADEMIA LYNK</h3>
+                    <p class="port-desc">Sitio web con landing de conversión, blog SEO y formulario de inscripción
                         integrado.</p>
                 </div>
             </div>
         </div>
-        <div class="block-button">
+        <div style="margin-top:2.5rem;text-align:center">
             <UiBtnLight variant="btn-secondary">Ver todos los proyectos</UiBtnLight>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="sections divided light" id="nosotros">
-        <div>
-            <p class="top-title">Quiénes somos</p>
-            <h2 class="h2">TECNOLOGÍA CON PROPÓSITO</h2>
-            <p class="sec-sub">Somos dos emprendedores
+    <section class="about sections" id="nosotros">
+        <div class="content-res">
+            <p class="sec-tag">Quiénes somos</p>
+            <h2 class="sec-h">TECNOLOGÍA<br>CON PROPÓSITO</h2>
+            <p style="font-size:.92rem;color:#555;line-height:1.75;margin-top:.75rem">Somos dos emprendedores
                 limeños que entendemos los retos reales de las PYMEs peruanas. No vendemos plantillas — construimos
                 soluciones que realmente funcionan para tu negocio.</p>
-            <div class="svc-grid">
-                <div class="svc-card">
+            <div class="about-nums">
+                <div class="about-num">
                     <div class="about-num-n">2026</div>
                     <div class="about-num-l">Fundada en Lima</div>
                 </div>
-                <div class="svc-card">
-                    <div class="about-num-n ">2+</div>
+                <div class="about-num">
+                    <div class="about-num-n">2+</div>
                     <div class="about-num-l">Proyectos</div>
                 </div>
-                <div class="svc-card">
+                <div class="about-num">
                     <div class="about-num-n">2+</div>
                     <div class="about-num-l">Industrias</div>
                 </div>
-                <div class="svc-card">
+                <div class="about-num">
                     <div class="about-num-n">2</div>
                     <div class="about-num-l">Co-fundadores</div>
                 </div>
             </div>
-            <!-- <div class="team-row">
+            <div class="team-row">
                 <div class="team-card">
                     <div class="team-av">D</div>
                     <div class="team-name">Daniel C.</div>
@@ -271,16 +269,15 @@ const homeFaqs = [
                     <div class="team-name">Nicolas A.</div>
                     <div class="team-role">Tech Lead & Data Analyst</div>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div>
             <div class="about-quote">
                 <div class="about-quote-mark">"</div>
-                <p class="light-text">Creamos Blue Lynk porque vimos demasiadas PYMEs peruanas perdiendo clientes por no
-                    tener
+                <p>Creamos Blue Lynk porque vimos demasiadas PYMEs peruanas perdiendo clientes por no tener
                     presencia digital. Nuestra misión es simple: hacer que la tecnología trabaje para ti, no al
                     revés.</p>
-                <div class="about-quote-sig vivid-text">— Equipo de Blue Lynk</div>
+                <div class="about-quote-sig">— Equipo de Blue Lynk</div>
             </div>
         </div>
     </section>
@@ -293,13 +290,69 @@ const homeFaqs = [
 </template>
 
 <style scoped>
-/* animation: fup .6s .1s both */
+.hero {
+    background: var(--color-bg-darkest);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 5rem 0 5rem;
+    position: relative;
+    overflow: hidden
+}
 
-/* HERO */
+.hero-glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--btn-secondary-dark-bg-hover) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: gpulse 7s ease-in-out infinite
+}
+
+.hero-tag {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    /* animation: fup .6s .1s both */
+}
+
+.hero-h {
+    line-height: .9;
+    color: var(--color-bg-light);
+    margin-bottom: 1.5rem;
+    /* animation: fup .6s .25s both */
+}
+
+.hero-h em {
+    color: var(--color-primary);
+}
+
+.hero-p {
+    line-height: 1.75;
+    color: var(--color-text-on-dark-muted);
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+    /* animation: fup .6s .4s both */
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* animation: fup .6s .55s both */
+}
+
 .hero-visual {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    /* animation: fup .6s .4s both */
 }
 
 .hero-stat-row {
@@ -308,17 +361,18 @@ const homeFaqs = [
     gap: 1rem
 }
 
-.stats-card {
-    background: var(--color-card-border-dark);
-    border: var(--color-card-border-dark);
+.hstat {
+    background: rgba(81, 112, 255, 0.12);
+    border: 1px solid rgba(81, 112, 255, 0.2);
     border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    font-family: var(--font-title);
+    padding: 1.25rem 1.5rem
 }
 
 .hstat-num {
+    font-family: var(--font-title);
     font-size: 4rem;
     color: var(--color-bg-light);
+    letter-spacing: 1px
 }
 
 .hstat-num span {
@@ -327,19 +381,141 @@ const homeFaqs = [
 }
 
 .hstat-label {
-    font-family: var(--font-title);
-    color: var(--color-text-on-dark-muted);
+    color: rgba(244, 246, 255, 0.5);
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: .2rem
 }
 
-.stats-card p {
-    color: var(--color-text-on-dark-muted);
+.hstat-wide {
+    background: rgba(31, 54, 168, 0.4);
+    border: 1px solid rgba(81, 112, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem
+}
+
+.hstat-wide p {
+    color: rgba(244, 246, 255, 0.55);
     margin-bottom: .5rem
 }
 
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .4rem
+}
+
+.bar-label {
+    color: rgba(244, 246, 255, 0.7);
+    width: 70px
+}
+
+.bar-track {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    height: 6px;
+    overflow: hidden
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--color-primary)
+}
+
+/* Services */
+
+.sec {
+    padding: 5rem 3rem
+}
+
+.sec-tag {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: .5rem
+}
+
+.sec-h {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--color-bg-darkest);
+    line-height: 1;
+    margin-bottom: .75rem
+}
+
+.sec-sub {
+    color: var(--color-text-on-light-muted);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 3rem
+}
+
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem
+}
+
+.svc-card {
+    background: var(--color-bg-lightest);
+    border-radius: 14px;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid transparent;
+    transition: border-color .2s, transform .2s
+}
+
+.svc-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px)
+}
+
+.svc-icon {
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border: 1px solid rgba(81, 112, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem
+}
+
+.svc-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-width: 1.8
+}
+
+.svc-card h3 {
+    color: var(--color-bg-darkest);
+    letter-spacing: 1px;
+    margin-bottom: .5rem
+}
+
+.svc-card p {
+    color: var(--color-text-on-light-muted);
+    line-height: 1.65
+}
+
 /* Portafolio */
+.port {
+    background: var(--color-bg-darkest);
+    padding: 5rem 3rem
+}
+
+.port .sec-h {
+    color: var(--color-bg-light)
+}
+
+.port .sec-sub {
+    color: rgba(244, 246, 255, 0.55)
+}
+
 .port-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -351,7 +527,7 @@ const homeFaqs = [
     overflow: hidden;
     background: var(--color-bg-dark);
     cursor: pointer;
-    transition: transform .2s;
+    transition: transform .2s
 }
 
 .port-card:hover {
@@ -363,7 +539,7 @@ const homeFaqs = [
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-title);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
     letter-spacing: 2px;
     color: rgba(244, 246, 255, 0.15)
@@ -386,20 +562,50 @@ const homeFaqs = [
 }
 
 .port-tag {
+    font-size: .68rem;
     letter-spacing: 3px;
     text-transform: uppercase;
+    color: var(--color-primary);
     margin-bottom: .35rem
 }
 
 .port-name {
+    color: var(--color-bg-light);
     letter-spacing: 1px;
-    margin-bottom: .8rem
+    margin-bottom: .35rem
+}
+
+.port-desc {
+    color: rgba(244, 246, 255, 0.5);
+    line-height: 1.6
 }
 
 /* About Section */
+.about {
+    background: var(--color-bg-light);
+    padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center
+}
+
+.about-nums {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem
+}
+
+.about-num {
+    background: var(--color-bg-lightest);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(81, 112, 255, 0.1)
+}
 
 .about-num-n {
-    font-family: var(--font-title);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
     color: var(--color-primary);
 }
@@ -413,22 +619,31 @@ const homeFaqs = [
 }
 
 .about-quote {
-    background: var(--color-bg-darkest);
+    background: #0D1B5E;
     border-radius: 16px;
     padding: 2rem;
-    position: relative;
+    position: relative
 }
 
 .about-quote-mark {
-    font-family: var(--font-title);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 5rem;
     color: var(--color-primary);
     line-height: .7;
     margin-bottom: .75rem
 }
 
+.about-quote p {
+    font-size: 1rem;
+    color: rgba(244, 246, 255, 0.8);
+    line-height: 1.75;
+    font-style: italic
+}
+
 .about-quote-sig {
     margin-top: 1.25rem;
+    font-size: .8rem;
+    color: rgba(244, 246, 255, 0.45)
 }
 
 .team-row {
@@ -454,7 +669,7 @@ const homeFaqs = [
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-title);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
     color: var(--color-bg-lightest);
     margin: 0 auto .75rem

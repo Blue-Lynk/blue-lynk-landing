@@ -65,6 +65,7 @@ const toggleMenu = () => {
 
     isMenuOpen.value = !isMenuOpen.value;
 
+    // Liberar el bloqueo de animación cuando termine el timeline
     setTimeout(() => {
         isAnimating.value = false;
     }, mainTl.duration() * 1000);
@@ -75,15 +76,11 @@ const toggleMenu = () => {
     <header>
         <nav class="nav">
             <div class="nav-logo">
-                <nuxt-link to="/">
-                    <!-- B<em>L</em>UE<b>LYNK</b> -->
-                    <img class="responsive-mobil" src="/logo-white-bl.png" alt="Blue Lynk Logo">
-                    <img class="responsive-desktop" src="/BlueLynk-horizontal-azul.png" alt="Blue Lynk Logo">
-                </nuxt-link>
+                <nuxt-link to="/">BLUE<b>LYNK</b></nuxt-link>
             </div>
 
 
-            <button class="nav-toogler" :class="{ open: isMenuOpen }" @click="toggleMenu" aria-label="Abrir menú">
+            <button class="nav-toogler" @click="toggleMenu" aria-label="Abrir menú">
                 <div class="hamburger-lines">
                     <span></span>
                     <span></span>
@@ -101,8 +98,8 @@ const toggleMenu = () => {
             <div class="nav-items">
                 <div class="nav-items-col">
                     <div class="nav-socials">
-                        <a href="">WhatsApp</a>
-                        <!-- <a href="">Instagram</a> -->
+                        <a href="">LinkedIn</a>
+                        <a href="">Instagram</a>
                     </div>
                     <div class="nav-legal">
                         <a href="">Privacy Policy</a>
@@ -112,14 +109,14 @@ const toggleMenu = () => {
                 </div>
                 <div class="nav-items-col">
                     <div class="nav-prmary-links">
-                        <nuxt-link to="/services">Servicios</nuxt-link>
+                        <a href="">Servicios</a>
                         <nuxt-link to="/portfolio">Portafolio</nuxt-link>
                         <nuxt-link to="/about">Nosotros</nuxt-link>
                         <nuxt-link to="/faq">FAQ</nuxt-link>
                     </div>
                     <div class="nav-secondary-links">
-                        <nuxt-link to="/contact">Contacto</nuxt-link>
-                        <a href="/support">Soporte</a>
+                        <a href="">Contacto</a>
+                        <a href="">Soporte</a>
                     </div>
                 </div>
             </div>
@@ -129,18 +126,18 @@ const toggleMenu = () => {
 
 <style scoped>
 .nav {
-    height: 55px;
-    position: fixed;
+    height: 80px;
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 3rem; 
     z-index: 100;
-
-    background: var(--color-bg-darkest);
+    
+    background: var(--color-bg-darkest); 
     backdrop-filter: blur(10px);
 }
 
@@ -150,8 +147,8 @@ const toggleMenu = () => {
     cursor: pointer;
 }
 
-/* .nav-logo a {
-    font-family: var(--font-logo);
+.nav-logo a {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 3px;
     color: var(--color-bg-light);
@@ -159,11 +156,6 @@ const toggleMenu = () => {
 
 .nav-logo b {
     color: var(--color-primary);
-} */
-
-.nav-logo img {
-    width: auto;
-    height: 30px;
 }
 
 .nav-toogler {
@@ -190,11 +182,11 @@ const toggleMenu = () => {
     display: block;
 }
 
-.nav-toogler.open .hamburger-lines span:nth-child(1) {
+.nav-toogler.open span:nth-child(1) {
     transform: translateY(4px) rotate(45deg);
 }
 
-.nav-toogler.open .hamburger-lines span:nth-child(2) {
+.nav-toogler.open span:nth-child(2) {
     transform: translateY(-4px) rotate(-45deg);
 }
 
@@ -209,12 +201,12 @@ const toggleMenu = () => {
 }
 
 .nav-content {
-    margin-top: 55px;
+    margin-top: 80px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 55px);
+    height: calc(100vh - 80px);
     pointer-events: none;
     z-index: 99;
 }

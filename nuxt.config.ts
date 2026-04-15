@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       ],
       meta: [
-        { name: 'theme-color', content: '#3D5AFE' },
+        { name: 'theme-color', content: '#5170FF' },
       ],
     },
   },
@@ -24,7 +24,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '@/assets/css/main.css',
-    '@/assets/css/components.css',
-    '@/assets/css/responsive.css'
+    '@/assets/css/responsive.css',
   ],
 })

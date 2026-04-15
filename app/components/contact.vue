@@ -1,54 +1,212 @@
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
+import { useContactForm } from '../composables/useContactForm'
+
+const form = reactive({
+  name: '',
+  lastname: '',
+  company: '',
+  email: '',
+  service: '',
+  message: '',
+  honeypot: ''
+})
+
+const loading = ref(false)
+const success = ref(false)
+const error = ref('')
+
+const validate = () => {
+  if (!form.name || !form.email || !form.message) {
+    return 'Completa los campos obligatorios'
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(form.email)) {
+    return 'Correo electrónico inválido'
+  }
+
+  if (form.message.length < 10) {
+    return 'El mensaje debe tener al menos 10 caracteres'
+  }
+
+  return null
+}
+
+const resetForm = () => {
+  form.name = ''
+  form.lastname = ''
+  form.company = ''
+  form.email = ''
+  form.service = ''
+  form.message = ''
+  form.honeypot = ''
+}
+
+const onSubmit = async () => {
+  error.value = ''
+  success.value = false
+
+  const validationError = validate()
+  if (validationError) {
+    error.value = validationError
+    return
+  }
+
+  loading.value = true
+
+  try {
+
+    const { submit, loading, success, error } = useContactForm()
+
+    await submit({
+      name: `${form.name} ${form.lastname}`.trim(),
+      email: form.email,
+      message: form.message,
+      company: form.company,
+      service: form.service,
+      honeypot: form.honeypot
+    })
+
+    success.value = true
+    resetForm()
+
+  } catch (err) {
+    error.value = 'No se pudo enviar el mensaje. Intenta nuevamente.'
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <template>
-    <section class="contact sections dark" id="contacto">
+  <section class="contact sections" id="contacto">
+    <!-- INFO -->
+    <div>
+      <p class="sec-tag">Hablemos</p>
+      <h2 class="sec-h">EMPIEZA <br> HOY</h2>
+      <p class="sec-sub" style="margin-bottom:1.5rem">
+        Cuéntanos tu proyecto. Respondemos en menos de 24 horas.
+      </p>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          info@bluelynk.dev
+        </div>
+        <div class="contact-info-item">
+          +51 987 151 798
+        </div>
+        <div class="contact-info-item">
+          Lima, Perú
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="cform" @submit.prevent="onSubmit">
+
+      <!-- Honeypot (anti-spam) -->
+      <input
+        v-model="form.honeypot"
+        type="text"
+        name="company_hidden"
+        style="display:none"
+        autocomplete="off"
+      />
+
+      <div class="cform-row">
         <div>
-            <p class="top-title">¿Listo para comenzar?</p>
-            <h2 class="sec-h">HAGAMOS CRECER TU NEGOCIO</h2>
-            <p class="sec-sub" style="margin-bottom:1.5rem">Cuéntanos tu proyecto. Respondemos en menos de 24 horas.</p>
-            <div class="contact-info">
-                <div class="contact-info-item"><svg viewBox="0 0 24 24">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg> info@bluelynk.dev</div>
-                <div class="contact-info-item"><svg viewBox="0 0 24 24">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg> +51 987 151 798</div>
-                <div class="contact-info-item"><svg viewBox="0 0 24 24">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg> Lima, Perú</div>
-            </div>
+          <label for="name">Nombre</label>
+          <input
+            v-model="form.name"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Tu nombre"
+            autocomplete="given-name"
+          />
         </div>
-        <div class="cform">
-            <div class="cform-row">
-                <div><label for="name">Nombre</label><input type="text" id="name" placeholder="Tu nombre" /></div>
-                <div><label for="lastname">Apellido</label><input type="text" id="lastname" placeholder="Tu apellido" /></div>
-            </div>
-            <br>
-            <div class="cform-row">
-                <div><label for="company">Empresa</label><input type="text" id="company" placeholder="Nombre de tu empresa" /></div>
-                <div><label for="email">Email</label><input type="email" id="email" placeholder="tu@email.com" /></div>
-            </div>
-            <label for="service">Servicio de interés</label>
-            <select id="service"
-                style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(244,246,255,0.15);border-radius:8px;padding:.65rem .9rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:#F4F6FF;outline:none;appearance:none">
-                <option value="" style="background:#1F36A8">Selecciona...</option>
-                <option style="background:#1F36A8">Sitio web</option>
-                <option style="background:#1F36A8">E-commerce</option>
-                <option style="background:#1F36A8">Sistema a medida</option>
-                <option style="background:#1F36A8">Marketing digital</option>
-                <option style="background:#1F36A8">Otro</option>
-            </select>
-            <label for="message">Mensaje</label>
-            <textarea id="message" placeholder="Cuéntanos sobre tu proyecto..." ></textarea>
-            <div style="margin-top:1.5rem">
-                <button class="btn-p-dark" style="width:100%;padding:.8rem">Enviar mensaje</button>
-            </div>
+
+        <div>
+          <label for="lastname">Apellido</label>
+          <input
+            v-model="form.lastname"
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Tu apellido"
+            autocomplete="family-name"
+          />
         </div>
-    </section>
+      </div>
+
+      <br>
+
+      <div class="cform-row">
+        <div>
+          <label for="company">Empresa</label>
+          <input
+            v-model="form.company"
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Nombre de tu empresa"
+            autocomplete="organization"
+          />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input
+            v-model="form.email"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="tu@email.com"
+            autocomplete="email"
+          />
+        </div>
+      </div>
+
+      <label for="service">Servicio de interés</label>
+      <select v-model="form.service" id="service" name="service">
+        <option value="">Selecciona...</option>
+        <option>Sitio web</option>
+        <option>E-commerce</option>
+        <option>Sistema a medida</option>
+        <option>Marketing digital</option>
+        <option>Otro</option>
+      </select>
+
+      <label for="message">Mensaje</label>
+      <textarea
+        v-model="form.message"
+        id="message"
+        name="message"
+        placeholder="Cuéntanos sobre tu proyecto..."
+      ></textarea>
+
+      <div style="margin-top:1.5rem">
+        <button
+          class="btn-p-dark"
+          style="width:100%;padding:.8rem"
+          :disabled="loading"
+        >
+          {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
+        </button>
+      </div>
+
+      <!-- Feedback -->
+      <p v-if="success" style="margin-top:1rem;color:lightgreen">
+        Mensaje enviado correctamente
+      </p>
+
+      <p v-if="error" style="margin-top:1rem;color:#ff6b6b">
+        {{ error }}
+      </p>
+
+    </form>
+  </section>
 </template>
 
 <style scoped>
@@ -59,6 +217,24 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start
+}
+
+.sec-h {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--color-bg-light);
+    line-height: 1;
+    margin-bottom: .75rem
+}
+
+.sec-tag {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: .5rem
+}
+
+.contact .sec-sub {
+    color: rgba(244, 246, 255, 0.6)
 }
 
 .contact-info {

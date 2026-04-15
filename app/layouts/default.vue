@@ -17,7 +17,7 @@ import Header from '~/components/header.vue';
 
 <style scoped>
 main {
-    padding-top: 55px;
+    padding-top: 80px;
     font-family: 'DM Sans', sans-serif;
     background: var(--color-bg-light);
     color: var(--color-text-on-light);

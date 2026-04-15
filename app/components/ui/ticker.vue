@@ -74,7 +74,7 @@ onMounted(async () => {
   font-size: .75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--color-bg-light);
+  color: rgba(244, 246, 255, 0.4);
   white-space: nowrap;
   flex-shrink: 0;
 }
