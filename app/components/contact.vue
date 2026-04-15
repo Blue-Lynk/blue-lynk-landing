@@ -80,11 +80,11 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <section class="contact sections" id="contacto">
+  <section class="divided dark sections " id="contacto">
     <!-- INFO -->
     <div>
-      <p class="sec-tag">Hablemos</p>
-      <h2 class="sec-h">EMPIEZA <br> HOY</h2>
+      <p class="top-title">Hablemos</p>
+      <h2 class="h2">EMPIEZA <br> HOY</h2>
       <p class="sec-sub" style="margin-bottom:1.5rem">
         Cuéntanos tu proyecto. Respondemos en menos de 24 horas.
       </p>
@@ -210,33 +210,6 @@ const onSubmit = async () => {
 </template>
 
 <style scoped>
-.contact {
-    background: var(--color-bg-dark);
-    padding: 5rem 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start
-}
-
-.sec-h {
-    font-family: 'Bebas Neue', sans-serif;
-    color: var(--color-bg-light);
-    line-height: 1;
-    margin-bottom: .75rem
-}
-
-.sec-tag {
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: .5rem
-}
-
-.contact .sec-sub {
-    color: rgba(244, 246, 255, 0.6)
-}
-
 .contact-info {
     margin-top: 1.5rem;
     display: flex;
@@ -290,11 +263,15 @@ const onSubmit = async () => {
     border: 1px solid rgba(244, 246, 255, 0.15);
     border-radius: 8px;
     padding: .65rem .9rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: .88rem;
     color: var(--color-bg-light);
     outline: none;
     transition: border-color .2s
+}
+
+option{
+  background: var(--color-bg-dark);
 }
 
 .cform input::placeholder,
