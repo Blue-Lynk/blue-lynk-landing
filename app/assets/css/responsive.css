@@ -1,30 +1,98 @@
-@media (max-width: 835px) {
+/* Responsiveness */
+@media (max-width: 1050px) {
     .sections {
-        grid-template-columns: 1fr !important;
-        padding: 3rem 1.5rem !important;
+        padding: 2rem !important;
     }
-    h2{
-        font-size: 4rem!important;
+
+    .h1 {
+        font-size: 7.5rem;
+    }
+
+    .h2 {
+        font-size: 5rem;
+    }
+
+    .responsive-desktop {
+        display: none !important;
     }
 }
 
-@media (max-width: 475px) {
+@media (max-width: 835px) {
 
-    .sections{
-        padding: 2rem 1rem !important;
+    .sections,
+    .hero {
+        grid-template-columns: 1fr !important;
+    }
+
+    .philosophy-inner p {
+        font-size: 3rem;
+    }
+
+    .responsive-ipad {
+        display: none !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 1.5rem;
+    }
+
+    .h1 {
+        font-size: 6.5rem;
+    }
+
+    .nav-logo img {
+        height: 30px !important;
+    }
+
+    .text-sm-center {
+        justify-self: start;
+        text-align: start;
+    }
+
+}
+
+@media (max-width: 475px) {
+    .h1 {
+        font-size: 5.5rem;
+    }
+
+    .h2 {
+        font-size: 4rem;
+    }
+
+    .h3 {
+        font-size: 1.7rem;
+    }
+
+    .philosophy-inner p {
+        font-size: 1.7rem;
+    }
+
+    .sec-sub {
+        max-width: 400px;
+    }
+
+    .responsive-mobil {
+        display: block !important;
+    }
+
+    .hero-card-2 {
+        display: none !important;
+    }
+
+    .sections {
         width: 100%;
     }
 
-    .content-res {
-        width: fit-content;
-    }
-
-    .hero-visual{
+    .hero-visual {
         max-width: 100%;
     }
 
-    .cform{
-        padding: 1rem!important;
+    .cform {
+        padding: 1rem !important;
     }
 
     .team-row {
@@ -32,12 +100,14 @@
     }
 
     .hero-stat-row {
-        grid-template-columns: 1fr!important;
+        grid-template-columns: 1fr !important;
     }
-    .nav-items{
-        justify-content: start!important;
-    }    
-    .nav-items-col:first-child{
+
+    .nav-items {
+        justify-content: start !important;
+    }
+
+    .nav-items-col:first-child {
         padding-top: 15px;
     }
 }

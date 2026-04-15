@@ -6,7 +6,7 @@ export const useSEO = (
   image: any = '/og-default.jpg'
 ) => {
   const route = useRoute()
-  const baseUrl = 'https://bluelynk.com'
+  const baseUrl = 'https://bluelynk.dev'
 
   const fullUrl = computed(() => `${baseUrl}${route.path}`)
 
