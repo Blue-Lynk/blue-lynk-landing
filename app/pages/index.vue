@@ -98,14 +98,14 @@ const homeFaqs = [
         <div class="hero-glow"></div>
         <div>
             <p class="top-title">Soluciones digitales · Lima, Perú</p>
-            <h1 class="hero-h h1">TU EMPRESA<br><em>LISTA</em><br>PARA EL<br>FUTURO</h1>
+            <h1 class="hero-h h1">TU EMPRESA<br><em>PREPARADA</em><br>PARA EL<br>FUTURO</h1>
         </div>
-        <UiBtnLight variant="btn-primary" class="responsive-mobil">Ver servicios</UiBtnLight>
+        <UiBtnLight variant="btn-primary" class="responsive-mobil">Solicitar asesoria</UiBtnLight>
         <div class="hero-visual ">
             <div class="hero-stat-row responsive-ipad">
                 <div class="stats-card">
                     <div class="hstat-num">2<span>+</span></div>
-                    <div class="hstat-label h4">Proyectos entregados</div>
+                    <div class="hstat-label h4">Soluciones a medida implementadas</div>
                 </div>
                 <div class="stats-card">
                     <div class="hstat-num">100<span>%</span></div>
@@ -113,9 +113,8 @@ const homeFaqs = [
                 </div>
             </div>
             <div class="stats-card hero-card-2">
-                <p class="sec-sub">Diseñamos y construimos herramientas digitales que hacen crecer a las PYMEs
-                    peruanas —
-                    rápido, bonito y sin complicaciones.</p>
+                <p class="sec-sub">Desarrollamos soluciones tecnológicas a medida que optimizan procesos,
+                mejoran la toma de decisiones y aceleran el crecimiento de las PYMEs.</p>
                 <div class="hero-btns">
                     <UiBtnLight variant="btn-primary">Ver servicios</UiBtnLight>
                     <UiBtnLight variant="btn-secondary">Ver portafolio</UiBtnLight>
@@ -139,7 +138,8 @@ const homeFaqs = [
     <section class="sec sections light" id="servicios">
         <p class="top-title">Qué hacemos</p>
         <h2 class="h2">NUESTROS SERVICIOS</h2>
-        <p class="sec-sub">Soluciones tecnológicas pensadas para negocios reales. Sin tecnicismos, con resultados.
+        <p class="sec-sub">Soluciones tecnológicas diseñadas para optimizar operaciones, mejorar la gestión
+        y acelerar el crecimiento de tu negocio.
         </p>
         <div class="svc-grid">
             <div class="svc-card">
@@ -148,8 +148,8 @@ const homeFaqs = [
                         <path d="M8 21h8M12 17v4" />
                     </svg></div>
                 <h3 class="h3">SITIOS WEB</h3>
-                <p class="p">Páginas rápidas y modernas que convierten visitas en clientes. Diseño exclusivo y
-                    optimizado.</p>
+                <p class="p">Diseñamos páginas web modernas, rápidas y orientadas a conversión,
+                alineadas a la identidad de tu marca y optimizadas para captar clientes.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -158,8 +158,8 @@ const homeFaqs = [
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                     </svg></div>
                 <h3 class="h3">E-COMMERCE</h3>
-                <p class="p">Tiendas online con pasarelas de pago peruanas, gestión de inventario y catálogos fáciles de
-                    manejar.</p>
+                <p class="p">Implementamos tiendas online completas con pasarelas de pago locales,
+                gestión de inventario y una experiencia de compra optimizada.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -167,14 +167,16 @@ const homeFaqs = [
                         <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg></div>
                 <h3 class="h3">INTEGRACIONES</h3>
-                <p class="p">Ni idea que poner.</p>
+                <p class="p">Conectamos tus sistemas, plataformas y herramientas para centralizar
+                información, automatizar procesos y evitar trabajo duplicado.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
                         <path d="M18 20V10M12 20V4M6 20v-6" />
                     </svg></div>
                 <h3 class="h3">DESARROLLO DE SOLUCIONES</h3>
-                <p class="p">Tampoco se que poner.</p>
+                <p class="p">Creamos plataformas, sistemas internos y MVPs a medida que se adaptan
+                a tus procesos y escalan junto con tu negocio.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -183,14 +185,16 @@ const homeFaqs = [
                             d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                     </svg></div>
                 <h3 class="h3">AUTOMATIZACIÓN</h3>
-                <p class="p">Eliminamos tareas repetitivas con flujos automáticos: emails, reportes, alertas y más.</p>
+                <p class="p">Automatizamos tareas operativas mediante flujos inteligentes: reportes,
+                notificaciones, integraciones y procesos repetitivos.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
                         <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                     </svg></div>
                 <h3 class="h3">SOPORTE TI</h3>
-                <p class="p">Mantenimiento, seguridad y soporte técnico para que tu infraestructura nunca pare.</p>
+                <p class="p">Brindamos soporte técnico, mantenimiento y asesoría continua para asegurar
+                la estabilidad y seguridad de tu operación tecnológica.</p>
             </div>
         </div>
     </section>
@@ -238,10 +242,14 @@ const homeFaqs = [
     <section class="sections divided light" id="nosotros">
         <div>
             <p class="top-title">Quiénes somos</p>
-            <h2 class="h2">TECNOLOGÍA CON PROPÓSITO</h2>
-            <p class="sec-sub">Somos dos emprendedores
-                limeños que entendemos los retos reales de las PYMEs peruanas. No vendemos plantillas — construimos
-                soluciones que realmente funcionan para tu negocio.</p>
+            <h2 class="h2">TECNOLOGÍA CON ENFOQUE EN RESULTADOS</h2>
+
+            <p class="sec-sub">
+                En Blue Lynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
+                optimizar sus procesos y fortalecer su presencia digital. Nos enfocamos en entender cada
+                negocio y construir herramientas que generen impacto real.
+            </p>
+
             <div class="svc-grid">
                 <div class="svc-card">
                     <div class="about-num-n">2026</div>
@@ -249,41 +257,94 @@ const homeFaqs = [
                 </div>
                 <div class="svc-card">
                     <div class="about-num-n ">2+</div>
-                    <div class="about-num-l">Proyectos</div>
+                    <div class="about-num-l">Proyectos implementados</div>
                 </div>
                 <div class="svc-card">
                     <div class="about-num-n">2+</div>
-                    <div class="about-num-l">Industrias</div>
+                    <div class="about-num-l">Industrias atendidas</div>
                 </div>
                 <div class="svc-card">
-                    <div class="about-num-n">2</div>
-                    <div class="about-num-l">Co-fundadores</div>
+                    <div class="about-num-n">100<span>%</span></div>
+                    <div class="about-num-l">Enfoque en satisfacción</div>
                 </div>
             </div>
-            <!-- <div class="team-row">
-                <div class="team-card">
-                    <div class="team-av">D</div>
-                    <div class="team-name">Daniel C.</div>
-                    <div class="team-role">Project Manager & Creative Director</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-av">N</div>
-                    <div class="team-name">Nicolas A.</div>
-                    <div class="team-role">Tech Lead & Data Analyst</div>
-                </div>
-            </div> -->
         </div>
+
         <div>
             <div class="about-quote">
                 <div class="about-quote-mark">"</div>
-                <p class="light-text">Creamos Blue Lynk porque vimos demasiadas PYMEs peruanas perdiendo clientes por no
-                    tener
-                    presencia digital. Nuestra misión es simple: hacer que la tecnología trabaje para ti, no al
-                    revés.</p>
-                <div class="about-quote-sig vivid-text">— Equipo de Blue Lynk</div>
+                <p class="light-text">
+                    Creemos que la tecnología debe adaptarse al negocio, no al revés. Por eso,
+                    diseñamos soluciones prácticas, escalables y alineadas a los objetivos de cada cliente.
+                </p>
+                <div class="about-quote-sig vivid-text">— Blue Lynk</div>
             </div>
         </div>
     </section>
+
+    <!-- Why Choose Us Section -->
+    <!-- <section class="sections light" id="por-que-elegirnos">
+        <p class="top-title">Nuestra diferencia</p>
+        <h2 class="h2">¿POR QUÉ ELEGIR BLUE LYNK?</h2>
+
+        <p class="sec-sub">
+            No solo desarrollamos software. Diseñamos soluciones alineadas a tu negocio,
+            con un enfoque práctico, escalable y orientado a resultados.
+        </p>
+
+        <div class="svc-grid">
+
+            <div class="svc-card">
+                <h3 class="h3">SOLUCIONES A MEDIDA</h3>
+                <p class="p">
+                    Cada proyecto se diseña desde cero según tus procesos, objetivos y necesidades.
+                    No trabajamos con plantillas ni soluciones genéricas.
+                </p>
+            </div>
+
+            <div class="svc-card">
+                <h3 class="h3">ENFOQUE EN NEGOCIO</h3>
+                <p class="p">
+                    Entendemos tu operación antes de desarrollar. La tecnología es un medio,
+                    no el fin: buscamos impacto real en eficiencia y crecimiento.
+                </p>
+            </div>
+
+            <div class="svc-card">
+                <h3 class="h3">SOLUCIONES ESCALABLES</h3>
+                <p class="p">
+                    Construimos herramientas preparadas para crecer contigo, evitando rehacer
+                    sistemas a medida que tu negocio evoluciona.
+                </p>
+            </div>
+
+            <div class="svc-card">
+                <h3 class="h3">ACOMPAÑAMIENTO CONTINUO</h3>
+                <p class="p">
+                    No entregamos y desaparecemos. Brindamos soporte, mejoras y asesoría para
+                    asegurar que la solución siga generando valor.
+                </p>
+            </div>
+
+            <div class="svc-card">
+                <h3 class="h3">IMPLEMENTACIÓN PRÁCTICA</h3>
+                <p class="p">
+                    Priorizamos soluciones funcionales y rápidas de implementar, enfocadas en
+                    resolver problemas reales desde el inicio.
+                </p>
+            </div>
+
+            <div class="svc-card">
+                <h3 class="h3">ENFOQUE EN PYMEs</h3>
+                <p class="p">
+                    Diseñamos soluciones adaptadas a la realidad de las empresas peruanas,
+                    considerando presupuesto, procesos y nivel de madurez digital.
+                </p>
+            </div>
+
+        </div>
+    </section> -->
+
 
     <!--FAQ Section -->
     <FaqSection :faqs="homeFaqs" />
