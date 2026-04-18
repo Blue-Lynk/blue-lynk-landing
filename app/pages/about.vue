@@ -7,7 +7,7 @@
     <section class="hero">
         <div class="hero-glow"></div>
         <div class="hero-content content-center-md">
-            <p class="top-title text-md-center">Quiénes somos</p>
+            <p class="top-title text-md-center">Nosotros</p>
             <h1 class="hero-h h1 text-md-center">
                 Nostros <em>sabemos</em> <br>
                 lo que necesitas
