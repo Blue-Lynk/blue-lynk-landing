@@ -245,7 +245,7 @@ function goToService(index: number) {
      <section class="hero">
         <div class="hero-glow"></div>
         <div class="hero-content content-center-md">
-            <p class="top-title text-md-center">Qué ofrecemos</p>
+            <p class="top-title text-md-center">Servicios</p>
             <h1 class="hero-h h1 text-md-center">
                 Soluciones <em>completas</em> <br>
                 para tu negocio
