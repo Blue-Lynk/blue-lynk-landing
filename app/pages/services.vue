@@ -407,11 +407,11 @@ function goToService(index: number) {
     <!-- CTA Section -->
     <section class="sections dark">
         <div class="final-cta">
-            <h2 class="h2 bright-text text-center">¿Cuál es el siguiente paso para tu negocio?</h2>
+            <h2 class="h2 bright-text text-center">¿Cuál es el <em style="padding-right: 5px;">siguiente </em>paso para tu negocio?</h2>
             <p class="light-text text-center md">
                 Cuéntanos qué necesitas. Te haremos una propuesta personalizada.
             </p>
-            <UiBtnLight variant="btn-primary">Solicitar cotización</UiBtnLight>
+            <UiBtnLight variant="btn-primary" to="/contact">Solicitar cotización</UiBtnLight>
         </div>
     </section>
 </template>
