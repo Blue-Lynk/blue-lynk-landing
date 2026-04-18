@@ -242,20 +242,35 @@ function goToService(index: number) {
 
 <template>
     <!-- Hero -->
-    <section class="hero hero-section">
+     <section class="hero">
         <div class="hero-glow"></div>
-        <div class="hero-content">
-            <p class="top-title text-sm-center">Qué ofrecemos</p>
-            <h2 class="hero-h h1 text-sm-center">
+        <div class="hero-content content-center-md">
+            <p class="top-title text-md-center">Qué ofrecemos</p>
+            <h1 class="hero-h h1 text-md-center">
                 Soluciones <em>completas</em> <br>
                 para tu negocio
-            </h2>
-            <p class="light-text text-sm-center md">
-                Desde sitios web hasta automatización. <br class="responsive-ipad">
+            </h1>
+            <p class="sec-sub light-text text-md-center md">
+                 Desde sitios web hasta automatización. <br class="responsive-ipad">
                 Cada servicio diseñado para hacer crecer tu empresa.
             </p>
+            <div class="hero-btns ">
+                <UiBtnLight variant="btn-primary" to="/contact">Agenda tu Cita</UiBtnLight>
+                <UiBtnLight variant="btn-secondary" to="/portfolio">Ver portafolio</UiBtnLight>
+            </div>
         </div>
     </section>
+
+     <!-- Ticker Section -->
+    <Ticker :items="[
+        { text: 'E-commerce' },
+        { text: 'Desarrollo web a medida', highlight: true },
+        { text: 'Aplicaciones móviles' },
+        { text: 'Integraciones API', highlight: true },
+        { text: 'SaaS' },
+        { text: 'Mantenimiento y soporte', highlight: true },
+        { text: 'Hosting' },
+    ]" />
 
     <!-- Services Carousel -->
     <section class="sections darkest">
@@ -402,17 +417,6 @@ function goToService(index: number) {
 </template>
 
 <style scoped>
-/* HERO */
-.hero-section {
-    grid-template-columns: 1fr;
-    justify-content: center;
-}
-
-.hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
 /* CAROUSEL WRAPPER */
 .carousel-wrapper {
     position: relative;
