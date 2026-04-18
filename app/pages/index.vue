@@ -73,6 +73,10 @@ useHead({
 
 const homeFaqs = [
     {
+        q: '¿Vale la pena invertir en una web?',
+        a: 'Una web profesional mejora tu presencia online, genera confianza y puede ayudarte a conseguir más clientes.'
+    },
+    {
         q: '¿Cuánto tiempo toma un proyecto?',
         a: 'Depende del alcance. Un sitio web informativo puede estar listo en 2–3 semanas. Un e-commerce puede tomar de 4 a 8 semanas.'
     },
@@ -412,5 +416,10 @@ const homeFaqs = [
     font-size: .75rem;
     color: var(--color-text-on-light-muted);
     margin-top: .2rem
+}
+
+/* Services */
+.svc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 </style>
