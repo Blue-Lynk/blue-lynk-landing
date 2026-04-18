@@ -20,8 +20,8 @@ const toggleFaq = (index: number) => {
 <template>
     <section class="sections lightest" id="faq">
         <div class="faq-container">
-            <p class="top-title">Preguntas frecuentes</p>
-            <h2 class="h2">FAQ</h2>
+            <p class="top-title">Resolvemos tus dudas</p>
+            <h2 class="h2">Preguntas frecuentes</h2>
             <p class="sec-sub">Todo lo que necesitas saber antes de empezar.</p>
 
             <div v-for="(item, index) in props.faqs" :key="index" class="faq-item"
