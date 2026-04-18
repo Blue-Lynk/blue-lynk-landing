@@ -1,17 +1,22 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
 defineProps<{
     variant?: 'btn-primary' | 'btn-secondary'
+    to?: string
+    href?: string
 }>()
 </script>
 
 <template>
-    <button :class="['btn', variant || 'btn-primary']">
+    <component :is="to ? NuxtLink : href ? 'a' : 'button'" :to="to" :href="href"
+        :class="['btn', variant || 'btn-primary']">
         <slot />
-    </button>
+    </component>
 </template>
 
 <style scoped>
 .btn {
+    text-decoration: none;
     border: none;
     padding: .7rem 1.8rem;
     border-radius: 8px;

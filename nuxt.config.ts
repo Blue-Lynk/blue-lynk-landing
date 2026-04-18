@@ -8,6 +8,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
       ],
       meta: [
         { name: 'theme-color', content: '#3D5AFE' },
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/sitemap', '@nuxt/a11y'],
   site: {
-    url: 'https://bluelynk.dev',
+    url: 'https://www.bluelynk.dev',
     name: 'Blue Lynk',
     defaultLocale: 'es',
   },

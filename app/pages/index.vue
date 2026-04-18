@@ -1,43 +1,43 @@
 <script setup lang="ts">
 
 useSeoMeta({
-    // 👇 Esto es lo que Google muestra en los resultados de búsqueda
-    title: 'Blue Lynk | Desarrollo Web y Apps para PYMEs en Lima, Perú',
+    // Se muestra en los resultados de busqueda
+    title: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
     description: 'Diseñamos sitios web, e-commerce y soluciones digitales para PYMEs peruanas. Rápido, moderno y sin complicaciones. Lima, Perú.',
 
-    // 👇 Open Graph: controla cómo se ve al compartir en WhatsApp, Facebook, LinkedIn
-    ogTitle: 'Blue Lynk | Tu empresa lista para el futuro',
+    // WhatsApp, Facebook, LinkedIn
+    ogTitle: 'Consultoría y Desarrollo Web | Blue Lynk',
     ogDescription: 'Soluciones digitales para PYMEs peruanas: sitios web, e-commerce, automatización y más.',
-    ogImage: 'https://bluelynk.dev/og-image.jpg', // 1200×630px
-    ogUrl: 'https://bluelynk.dev',
+    ogImage: 'https://www.bluelynk.dev/og-image.jpg', // 1200×630px
+    ogUrl: 'https://www.bluelynk.dev',
     ogType: 'website',
     ogLocale: 'es_PE',
     ogSiteName: 'Blue Lynk',
 
-    // 👇 Twitter/X Card
+    // Twitter/X 
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Blue Lynk | Desarrollo Web para PYMEs en Lima',
+    twitterTitle: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
     twitterDescription: 'Hacemos crecer a los negocios peruanos con tecnología accesible.',
-    twitterImage: 'https://bluelynk.dev/og-image.jpg',
+    twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
 
-    // 👇 Instrucciones para los crawlers de Google
+    // Instrucciones para los crawlers de Google
     robots: 'index, follow',
 })
 
 useHead({
     htmlAttrs: { lang: 'es' },
-    link: [{ rel: 'canonical', href: 'https://bluelynk.dev' }],
+    link: [{ rel: 'canonical', href: 'https://www.bluelynk.dev' }],
 
     script: [
         {
             type: 'application/ld+json',
             innerHTML: JSON.stringify({
                 '@context': 'https://schema.org',
-                '@type': 'LocalBusiness', // o 'ProfessionalService'
+                '@type': 'ProfessionalService',
                 name: 'Blue Lynk',
                 description: 'Agencia de desarrollo web y soluciones digitales para PYMEs peruanas.',
-                url: 'https://bluelynk.dev',
-                logo: 'https://bluelynk.dev/logo.png',
+                url: 'https://www.bluelynk.dev',
+                logo: 'https://www.bluelynk.dev/logo.png',
                 telephone: '+51 987 151 798',
                 email: 'info@bluelynk.dev',
                 address: {
@@ -96,39 +96,28 @@ const homeFaqs = [
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-glow"></div>
-        <div>
-            <p class="top-title">Soluciones digitales · Lima, Perú</p>
-            <h1 class="hero-h h1">TU EMPRESA<br><em>PREPARADA</em><br>PARA EL<br>FUTURO</h1>
-        </div>
-        <UiBtnLight variant="btn-primary" class="responsive-mobil">Solicitar asesoria</UiBtnLight>
-        <div class="hero-visual ">
-            <div class="hero-stat-row responsive-ipad">
-                <div class="stats-card">
-                    <div class="hstat-num">2<span>+</span></div>
-                    <div class="hstat-label h4">Soluciones a medida implementadas</div>
-                </div>
-                <div class="stats-card">
-                    <div class="hstat-num">100<span>%</span></div>
-                    <div class="hstat-label h4">Clientes satisfechos</div>
-                </div>
-            </div>
-            <div class="stats-card hero-card-2">
-                <p class="sec-sub">Desarrollamos soluciones tecnológicas a medida que optimizan procesos,
-                mejoran la toma de decisiones y aceleran el crecimiento de las PYMEs.</p>
-                <div class="hero-btns">
-                    <UiBtnLight variant="btn-primary">Ver servicios</UiBtnLight>
-                    <UiBtnLight variant="btn-secondary">Ver portafolio</UiBtnLight>
-                </div>
+        <div class="hero-content content-center-md">
+            <p class="top-title text-md-center">Soluciones digitales · Lima, Perú</p>
+            <h1 class="hero-h h1 text-md-center">
+                TU EMPRESA <em>PREPARADA</em><br>PARA EL FUTURO
+            </h1>
+            <p class="sec-sub light-text text-md-center md">
+                Desarrollamos soluciones tecnológicas a medida que optimizan procesos,
+                mejoran la toma de decisiones y aceleran tu crecimiento.
+            </p>
+            <div class="hero-btns ">
+                <UiBtnLight variant="btn-primary" to="/services">Ver servicios</UiBtnLight>
+                <UiBtnLight variant="btn-secondary" to="/portfolio">Ver portafolio</UiBtnLight>
             </div>
         </div>
     </section>
 
     <!-- Ticker Section -->
     <Ticker :items="[
+        { text: 'E-commerce' },
         { text: 'Desarrollo web a medida', highlight: true },
         { text: 'Aplicaciones móviles' },
         { text: 'Integraciones API', highlight: true },
-        { text: 'E-commerce' },
         { text: 'SaaS' },
         { text: 'Mantenimiento y soporte', highlight: true },
         { text: 'Hosting' },
@@ -139,7 +128,7 @@ const homeFaqs = [
         <p class="top-title">Qué hacemos</p>
         <h2 class="h2">NUESTROS SERVICIOS</h2>
         <p class="sec-sub">Soluciones tecnológicas diseñadas para optimizar operaciones, mejorar la gestión
-        y acelerar el crecimiento de tu negocio.
+            y acelerar el crecimiento de tu negocio.
         </p>
         <div class="svc-grid">
             <div class="svc-card">
@@ -149,7 +138,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">SITIOS WEB</h3>
                 <p class="p">Diseñamos páginas web modernas, rápidas y orientadas a conversión,
-                alineadas a la identidad de tu marca y optimizadas para captar clientes.</p>
+                    alineadas a la identidad de tu marca y optimizadas para captar clientes.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -159,7 +148,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">E-COMMERCE</h3>
                 <p class="p">Implementamos tiendas online completas con pasarelas de pago locales,
-                gestión de inventario y una experiencia de compra optimizada.</p>
+                    gestión de inventario y una experiencia de compra optimizada.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -168,7 +157,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">INTEGRACIONES</h3>
                 <p class="p">Conectamos tus sistemas, plataformas y herramientas para centralizar
-                información, automatizar procesos y evitar trabajo duplicado.</p>
+                    información, automatizar procesos y evitar trabajo duplicado.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -176,7 +165,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">DESARROLLO DE SOLUCIONES</h3>
                 <p class="p">Creamos plataformas, sistemas internos y MVPs a medida que se adaptan
-                a tus procesos y escalan junto con tu negocio.</p>
+                    a tus procesos y escalan junto con tu negocio.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -186,7 +175,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">AUTOMATIZACIÓN</h3>
                 <p class="p">Automatizamos tareas operativas mediante flujos inteligentes: reportes,
-                notificaciones, integraciones y procesos repetitivos.</p>
+                    notificaciones, integraciones y procesos repetitivos.</p>
             </div>
             <div class="svc-card">
                 <div class="svc-icon"><svg viewBox="0 0 24 24">
@@ -194,7 +183,7 @@ const homeFaqs = [
                     </svg></div>
                 <h3 class="h3">SOPORTE TI</h3>
                 <p class="p">Brindamos soporte técnico, mantenimiento y asesoría continua para asegurar
-                la estabilidad y seguridad de tu operación tecnológica.</p>
+                    la estabilidad y seguridad de tu operación tecnológica.</p>
             </div>
         </div>
     </section>
@@ -234,7 +223,7 @@ const homeFaqs = [
             </div>
         </div>
         <div class="block-button">
-            <UiBtnLight variant="btn-secondary">Ver todos los proyectos</UiBtnLight>
+            <UiBtnLight variant="btn-secondary" to="portfolio">Ver todos los proyectos</UiBtnLight>
         </div>
     </section>
 
@@ -264,7 +253,7 @@ const homeFaqs = [
                     <div class="about-num-l">Industrias atendidas</div>
                 </div>
                 <div class="svc-card">
-                    <div class="about-num-n">100<span>%</span></div>
+                    <div class="about-num-n">100%</div>
                     <div class="about-num-l">Enfoque en satisfacción</div>
                 </div>
             </div>
@@ -355,50 +344,6 @@ const homeFaqs = [
 
 <style scoped>
 /* animation: fup .6s .1s both */
-
-/* HERO */
-.hero-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.hero-stat-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem
-}
-
-.stats-card {
-    background: var(--color-card-border-dark);
-    border: var(--color-card-border-dark);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    font-family: var(--font-title);
-}
-
-.hstat-num {
-    font-size: 4rem;
-    color: var(--color-bg-light);
-}
-
-.hstat-num span {
-    font-size: 4rem;
-    color: var(--color-primary)
-}
-
-.hstat-label {
-    font-family: var(--font-title);
-    color: var(--color-text-on-dark-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: .2rem
-}
-
-.stats-card p {
-    color: var(--color-text-on-dark-muted);
-    margin-bottom: .5rem
-}
 
 /* Portafolio */
 .port-grid {

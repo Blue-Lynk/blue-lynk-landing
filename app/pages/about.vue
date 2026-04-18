@@ -4,28 +4,32 @@
 
 <template>
     <!-- Hero -->
-    <section class="hero hero-section">
+    <section class="hero">
         <div class="hero-glow"></div>
-        <div class="hero-content">
-            <p class="top-title text-sm-center">Quiénes somos</p>
-            <h2 class="hero-h h1 text-sm-center">
+        <div class="hero-content content-center-md">
+            <p class="top-title text-md-center">Quiénes somos</p>
+            <h1 class="hero-h h1 text-md-center">
                 Nostros <em>sabemos</em> <br>
                 lo que necesitas
-            </h2>
-            <p class="light-text text-sm-center md">
+            </h1>
+            <p class="sec-sub light-text text-md-center md">
                 Porque tu negocio merece crecer sin complicaciones. <br class="responsive-ipad">
                 Elige claridad, elige resultados, elige Blue Lynk.
             </p>
+            <div class="hero-btns ">
+                <UiBtnLight variant="btn-primary" to="/contact">Solicitar asesoria</UiBtnLight>
+                <UiBtnLight variant="btn-secondary" to="/services">Nuestros Servicios</UiBtnLight>
+            </div>
         </div>
     </section>
 
     <!-- Ticker -->
     <Ticker :items="[
+        { text: 'SaaS' },
         { text: 'Desarrollo web a medida', highlight: true },
         { text: 'Aplicaciones móviles' },
         { text: 'Integraciones API', highlight: true },
         { text: 'E-commerce' },
-        { text: 'SaaS' },
         { text: 'Mantenimiento y soporte', highlight: true },
         { text: 'Hosting' },
     ]" />
@@ -215,31 +219,27 @@
 
     <!-- Final -->
     <section class="sections dark">
-        <div class="final-cta">
+        <div class="content-center">
             <h2 class="h2 bright-text text-center">¿Listos para <em>crecer</em> juntos?</h2>
             <p class="light-text text-center md">
                 Cuéntanos sobre tu proyecto. Te responderemos en 24 horas.
             </p>
-            <UiBtnLight variant="btn-primary">Empezar ahora</UiBtnLight>
+            <br>
+            <UiBtnLight variant="btn-primary" to="/contact">Empezar ahora</UiBtnLight>
         </div>
     </section>
 </template>
 
 <style scoped>
-/* HERO */
-.hero-section {
-    grid-template-columns: 1fr;
-    justify-content: center;
-}
 
 /* FILOSOFIA */
 .philosophy-text {
     max-width: 500px;
 }
 
-.philosophy-checks{
-    margin-top: 2rem; 
-    display: grid; 
+.philosophy-checks {
+    margin-top: 2rem;
+    display: grid;
     gap: 1.5rem;
 }
 
@@ -290,43 +290,6 @@
 
 .philosophy-inner {
     padding: 2rem;
-}
-
-/* PILARES */
-.pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-}
-
-.pillar-card {
-    background: rgba(81, 112, 255, 0.12);
-    border: 1px solid rgba(81, 112, 255, 0.2);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    position: relative;
-    transition: transform 0.3s, border-color 0.3s;
-}
-
-.pillar-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--color-primary);
-}
-
-.pillar-number {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    color: var(--color-text-vivid);
-    line-height: 1;
-    opacity: 0.6;
-}
-
-.pillar-card h3 {
-    padding: 1rem 0;
-}
-
-.pillar-card p {
-    color: var(--color-text-on-dark-muted);
 }
 
 /* TEAM */

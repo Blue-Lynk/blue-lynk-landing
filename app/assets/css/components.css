@@ -13,7 +13,7 @@
 
 /* CARD SVG */
 
-.svc-grid {
+.svc-grid, .pillars-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.25rem
@@ -27,9 +27,23 @@
     transition: border-color .2s, transform .2s
 }
 
+.pillar-card {
+    background: rgba(81, 112, 255, 0.12);
+    border: 1px solid rgba(81, 112, 255, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
 .svc-card:hover {
     border-color: var(--color-primary);
     transform: translateY(-4px)
+}
+
+.pillar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
 }
 
 .svc-icon {
@@ -61,6 +75,22 @@
 .svc-card p {
     color: var(--color-text-on-light-muted);
     line-height: 1.65
+}
+
+.pillar-number {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--color-text-vivid);
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.pillar-card h3 {
+    padding: 1rem 0;
+}
+
+.pillar-card p {
+    color: var(--color-text-on-dark-muted);
 }
 
 /* CENTER BUTTON SECTION*/

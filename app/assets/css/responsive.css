@@ -28,9 +28,7 @@
         font-size: 3rem;
     }
 
-    .responsive-ipad {
-        display: none !important;
-    }
+
 }
 
 
@@ -47,11 +45,18 @@
         height: 30px !important;
     }
 
-    .text-sm-center {
+    .text-md-center {
         justify-self: start;
         text-align: start;
     }
 
+    .content-center-md {
+        text-align: start;
+    }
+
+    .hero-btns {
+        justify-content: start;
+    }
 }
 
 @media (max-width: 475px) {
@@ -73,6 +78,10 @@
 
     .sec-sub {
         max-width: 400px;
+    }
+
+    .responsive-ipad {
+        display: none !important;
     }
 
     .responsive-mobil {

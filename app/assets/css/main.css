@@ -132,15 +132,16 @@ section {
 }
 
 .hero {
-    min-height: calc(100lvh - 125px);
+    min-height: calc(100lvh - 115px);
     padding: 2.5rem;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1fr;
     gap: clamp(2rem, 4vw, 5rem);
     align-items: center;
     background: linear-gradient(135deg, var(--color-bg-darkest)60%, var(--color-primary-hover)120%);
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    justify-content: center;
 }
 
 .hero-h {
@@ -156,11 +157,12 @@ em {
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .sec-sub {
     max-width: 480px;
-    line-height: 1.7;
+    line-height: 1.5;
     margin-bottom: 3rem
 }
 
@@ -247,20 +249,25 @@ em {
     display: none;
 }
 
-.text-sm-center{
+.content-center-md,
+.content-center {
+    text-align: center;
+}
+
+.text-md-center {
     justify-self: center;
     text-align: center;
 }
 
-.text-center{
+.text-center {
     justify-self: center;
     text-align: center;
 }
 
-.md{
+.md {
     margin: 1rem 0;
     max-width: 500px;
-    line-height: 1.8;
+    line-height: 1.5;
 }
 
 /* Animations */

@@ -35,19 +35,19 @@ onMounted(() => {
     mainTl.to(".nav-bg", {
         scaleY: 1,
         stagger: 0.1,
-        duration: 0.6,
+        duration: 0.4,
         ease: "power4.inOut"
     });
 
     mainTl.to(".nav-items", {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: 0.6,
+        duration: 0.3,
         ease: "power3.inOut"
     }, "-=0.4");
 
     mainTl.from(".line-inner", {
         y: "100%",
-        duration: 0.3,
+        duration: 0.2,
         stagger: 0.03,
         ease: "power2.out"
     }, "-=0.2");
@@ -78,7 +78,7 @@ const toggleMenu = () => {
                 <nuxt-link to="/">
                     <!-- B<em>L</em>UE<b>LYNK</b> -->
                     <img class="responsive-mobil" src="/logo-white-bl.png" alt="Blue Lynk Logo">
-                    <img class="responsive-desktop" src="/BlueLynk-horizontal-azul.png" alt="Blue Lynk Logo">
+                    <img class="responsive-ipad" src="/BlueLynk-horizontal-azul.png" alt="Blue Lynk Logo">
                 </nuxt-link>
             </div>
 
