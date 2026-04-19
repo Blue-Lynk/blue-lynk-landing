@@ -119,8 +119,7 @@ function formatDate(dateString: string) {
         <div class="hero-content content-center-md">
             <p class="top-title text-md-center">Nuestro Blog</p>
             <h1 class="hero-h h1 text-md-center">
-                Artículos sobre <em>Web</em>, <br>
-                <em>SEO</em> y Negocios
+                Guías y consejos <br> para <em>crecer</em> online
             </h1>
             <p class="sec-sub light-text text-md-center md">
                 Consejos, estrategias y guías prácticas para hacer crecer tu negocio digital.
