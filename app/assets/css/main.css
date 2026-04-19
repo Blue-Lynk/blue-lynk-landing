@@ -136,7 +136,7 @@ section {
 }
 
 .hero {
-    min-height: calc(100lvh - 115px);
+    min-height: calc(100vh - 105px);
     padding: 2.5rem;
     display: grid;
     grid-template-columns: 1fr;
