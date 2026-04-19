@@ -119,7 +119,7 @@ const toggleMenu = () => {
                     </div>
                     <div class="nav-secondary-links">
                         <nuxt-link to="/contact">Contacto</nuxt-link>
-                        <nuxt-link to="/blog/posts">Blog</nuxt-link>
+                        <nuxt-link to="/blog">Blog</nuxt-link>
                         <nuxt-link to="/support">Soporte</nuxt-link>
                     </div>
                 </div>
