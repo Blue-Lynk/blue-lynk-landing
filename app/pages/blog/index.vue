@@ -1,53 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const posts = ref([])
-const selectedCategory = ref('all')
+import posts from '~/composables/posts.json'
 
-// En Nuxt 3 deberías usar un composable o API
-// Para este ejemplo, asumimos que los posts vienen de una API
-// Si usas contenido estático, usa este patrón:
-const allPosts = [
-    {
-        id: 'como-elegir-sitio-web-para-pyme',
-        slug: 'como-elegir-sitio-web-para-pyme',
-        title: 'Cómo Elegir el Sitio Web Perfecto para tu PYME en 2024',
-        description: 'Guía completa sobre qué características debe tener tu sitio web para atraer clientes y mejorar ventas.',
-        author: 'Daniel C.',
-        date: '2026-04-19',
-        category: 'Web Development',
-        readTime: 4,
-        image: '/blog/sitio-web-pyme.jpg',
-        imageAlt: 'Persona trabajando en un sitio web profesional para PYME',
-        tags: ['web-design', 'seo', 'negocios']
-    },
-    {
-        id: 'errores-comunes-ecommerce',
-        slug: 'errores-comunes-ecommerce',
-        title: '5 Errores Críticos en E-commerce que Pierden Ventas',
-        description: 'Descubre los 5 errores más comunes en tiendas online y cómo evitarlos para aumentar tus conversiones.',
-        author: 'Nicolás A.',
-        date: '2026-04-19',
-        category: 'E-commerce',
-        readTime: 4,
-        image: '/blog/errores-ecommerce.jpg',
-        imageAlt: 'Análisis de errores en tienda online',
-        tags: ['ecommerce', 'ventas', 'conversión']
-    },
-    {
-        id: 'seo-basico-para-pymes',
-        slug: 'seo-basico-para-pymes',
-        title: 'SEO Básico para PYMES: Posiciónate en Google sin Agencias',
-        description: 'Aprende las tácticas SEO esenciales que puedes implementar tú mismo para aparecer en Google.',
-        author: 'Daniel C.',
-        date: '2026-04-19',
-        category: 'SEO',
-        readTime: 3,
-        image: '/blog/seo-pymes.jpg',
-        imageAlt: 'Estrategia SEO para pequeñas empresas',
-        tags: ['seo', 'marketing', 'trafico']
-    }
-]
+const allPosts = posts;
+const selectedCategory = ref('all')
 
 // Actualizar SEO
 useSeoMeta({
