@@ -124,6 +124,14 @@ section {
     width: 100%;
 }
 
+strong{
+    color: var(--color-bg-dark);
+}
+
+a{
+    text-decoration: none;
+}
+
 .sections {
     padding: 5rem 3rem;
 }
