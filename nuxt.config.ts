@@ -28,4 +28,13 @@ export default defineNuxtConfig({
     '@/assets/css/components.css',
     '@/assets/css/responsive.css'
   ],
+  nitro: {
+    routeRules: {
+      '/**': {
+        headers: {
+          'X-Powered-By': ''
+        }
+      }
+    }
+  }
 })
