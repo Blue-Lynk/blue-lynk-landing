@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import posts from '~/composables/posts.json'
 useSeoMeta({
     // Se muestra en los resultados de busqueda
     title: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
@@ -94,6 +94,12 @@ const homeFaqs = [
     }
 ]
 
+const latestPosts = computed(() => {
+    return posts
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 2)
+})
+
 </script>
 
 <template>
@@ -101,7 +107,7 @@ const homeFaqs = [
     <section class="hero">
         <div class="hero-glow"></div>
         <div class="hero-content content-center-md">
-            <p class="top-title text-md-center">Soluciones digitales · Lima, Perú</p>
+            <p class="top-title text-md-center">Consultoría y Desarrollo Web en Lima, Perú</p>
             <h1 class="hero-h h1 text-md-center">
                 TU EMPRESA <em>PREPARADA</em><br>PARA EL FUTURO
             </h1>
@@ -278,6 +284,54 @@ const homeFaqs = [
     <!--FAQ Section -->
     <FaqSection :faqs="homeFaqs" />
 
+    <section class="sections light" id="blog">
+        <p class="top-title">
+            Blog de desarrollo web en Lima para empresas
+        </p>
+
+        <h2 class="h2">ARTÍCULOS Y GUÍAS</h2>
+
+        <p class="sec-sub">
+            Aprende cómo llevar tu negocio al siguiente nivel con estrategias de desarrollo web,
+            SEO y e-commerce en Perú. Compartimos guías prácticas para ayudarte a tener
+            <strong>tu empresa preparada para el futuro</strong> con herramientas digitales
+            modernas y efectivas.
+        </p>
+        <div class="blog-grid">
+            <article v-for="post in latestPosts" :key="post.id" class="blog-card">
+                <div class="blog-image">
+                    <img :src="post.image" :alt="post.imageAlt" loading="lazy">
+                </div>
+
+                <div class="blog-content">
+                    <p class="blog-category">{{ post.category }}</p>
+
+                    <h3 class="blog-title h4">
+                        <NuxtLink :to="`/blog/${post.slug}`">
+                            {{ post.title }}
+                        </NuxtLink>
+                    </h3>
+
+                    <p class="blog-description">
+                        {{ post.description }}
+                    </p>
+
+                    <NuxtLink :to="`/blog/${post.slug}`" class="blog-link">
+                        Leer más →
+                    </NuxtLink>
+                </div>
+            </article>
+        </div>
+
+        <!-- CTA -->
+        <div class="block-button">
+            <UiBtnDark variant="btn-primary" to="/blog">
+                Ver todos los artículos
+            </UiBtnDark>
+        </div>
+
+    </section>
+
     <!-- Contact Section -->
     <Contact />
 </template>
@@ -421,5 +475,10 @@ const homeFaqs = [
 /* Services */
 .svc-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Posts */
+.blog-grid {
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 </style>
