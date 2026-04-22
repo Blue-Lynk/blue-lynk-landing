@@ -20,5 +20,6 @@ main {
     background: var(--color-bg-light);
     color: var(--color-text-on-light);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 </style>

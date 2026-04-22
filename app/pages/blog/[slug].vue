@@ -180,8 +180,7 @@ function renderMarkdown(markdown) {
                                 <a :href="`#${item.id}`">{{ item.title }}</a>
                             </li>
                         </ul>
-                    </div>
-
+                    </div>          
                     <!-- Newsletter -->
                     <div class="sidebar-widget newsletter-widget">
                         <h4 class="h4">Newsletter</h4>
@@ -190,7 +189,7 @@ function renderMarkdown(markdown) {
                             <input type="email" placeholder="tu@email.com" required>
                             <button type="submit">Suscribirse</button>
                         </form>
-                    </div>
+                    </div>                              
                 </aside>
             </div>
         </article>
@@ -446,6 +445,9 @@ function renderMarkdown(markdown) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /* position: absolute;
+    right: 90px;
+    align-items: end; */
 }
 
 .sidebar-widget {
@@ -453,6 +455,7 @@ function renderMarkdown(markdown) {
     padding: 1.5rem;
     border-radius: 12px;
     border: 1px solid rgba(81, 112, 255, 0.1);
+    /* width: 65%; */
 }
 
 .sidebar-widget h4 {
