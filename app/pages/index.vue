@@ -2,21 +2,21 @@
 import posts from '~/composables/posts.json'
 useSeoMeta({
     // Se muestra en los resultados de busqueda
-    title: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
+    title: 'Consultoría y Desarrollo Web en Lima | BlueLynk',
     description: 'Diseñamos sitios web, e-commerce y soluciones digitales para PYMEs peruanas. Rápido, moderno y sin complicaciones. Lima, Perú.',
 
     // WhatsApp, Facebook, LinkedIn
-    ogTitle: 'Consultoría y Desarrollo Web | Blue Lynk',
+    ogTitle: 'Consultoría y Desarrollo Web | BlueLynk',
     ogDescription: 'Soluciones digitales para PYMEs peruanas: sitios web, e-commerce, automatización y más.',
     ogImage: 'https://www.bluelynk.dev/og-image.jpg', // 1200×630px
     ogUrl: 'https://www.bluelynk.dev',
     ogType: 'website',
     ogLocale: 'es_PE',
-    ogSiteName: 'Blue Lynk',
+    ogSiteName: 'BlueLynk',
 
     // Twitter/X 
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
+    twitterTitle: 'Consultoría y Desarrollo Web en Lima | BlueLynk',
     twitterDescription: 'Hacemos crecer a los negocios peruanos con tecnología accesible.',
     twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
 
@@ -34,7 +34,15 @@ useHead({
             innerHTML: JSON.stringify({
                 '@context': 'https://schema.org',
                 '@type': 'ProfessionalService',
-                name: 'Blue Lynk',
+                name: 'BlueLynk',
+                alternateName: [
+                    'Blue Lynk',
+                    'BlueLink',
+                    'Blue Link',
+                    'Blu Lynk',
+                    'bluelynk',
+                    'bluelink'
+                ],
                 description: 'Agencia de desarrollo web y soluciones digitales para PYMEs peruanas.',
                 url: 'https://www.bluelynk.dev',
                 logo: 'https://www.bluelynk.dev/logo.png',
@@ -52,7 +60,7 @@ useHead({
                 },
                 hasOfferCatalog: {
                     '@type': 'OfferCatalog',
-                    name: 'Servicios de Blue Lynk',
+                    name: 'Servicios de BlueLynk',
                     itemListElement: [
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Desarrollo de sitios web' } },
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-commerce' } },
@@ -244,7 +252,7 @@ const latestPosts = computed(() => {
             <h2 class="h2">TECNOLOGÍA CON ENFOQUE EN RESULTADOS</h2>
 
             <p class="sec-sub">
-                En Blue Lynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
+                En BlueLynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
                 optimizar sus procesos y fortalecer su presencia digital. Nos enfocamos en entender cada
                 negocio y construir herramientas que generen impacto real.
             </p>
@@ -276,7 +284,7 @@ const latestPosts = computed(() => {
                     Creemos que la tecnología debe adaptarse al negocio, no al revés. Por eso,
                     diseñamos soluciones prácticas, escalables y alineadas a los objetivos de cada cliente.
                 </p>
-                <div class="about-quote-sig vivid-text">— Blue Lynk</div>
+                <div class="about-quote-sig vivid-text">— BlueLynk</div>
             </div>
         </div>
     </section>
@@ -479,6 +487,6 @@ const latestPosts = computed(() => {
 
 /* Posts */
 .blog-grid {
-     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 </style>

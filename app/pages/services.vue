@@ -2,25 +2,127 @@
 import { ref } from 'vue'
 
 useSeoMeta({
-    title: 'Servicios | Blue Lynk | Soluciones Digitales para PYMEs',
-    description: 'Descubre nuestros servicios: desarrollo web, e-commerce, integraciones API, automatización y más. Soluciones digitales para tu negocio en Lima, Perú.',
-    ogTitle: 'Servicios | Blue Lynk',
-    ogDescription: 'Soluciones digitales completas para PYMEs peruanas: web, e-commerce, APIs y más.',
-    ogImage: 'https://bluelynk.dev/og-image.jpg',
-    ogUrl: 'https://bluelynk.dev/servicios',
+    // SEO principal
+    title: 'Servicios | BlueLynk',
+
+    description:
+        'Descubre los servicios de BlueLynk: desarrollo web, e-commerce, automatización, integraciones, SaaS y soporte tecnológico para empresas.',
+
+    // Open Graph
+    ogTitle: 'Servicios | BlueLynk',
+
+    ogDescription:
+        'Creamos soluciones digitales modernas para negocios que buscan crecer, optimizar procesos y fortalecer su presencia digital.',
+
+    ogImage: 'https://www.bluelynk.dev/og-image.jpg',
+    ogUrl: 'https://www.bluelynk.dev/services',
     ogType: 'website',
     ogLocale: 'es_PE',
-    ogSiteName: 'Blue Lynk',
+    ogSiteName: 'BlueLynk',
+
+    // Twitter / X
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Servicios | Blue Lynk',
-    twitterDescription: 'Descubre nuestras soluciones digitales para tu negocio.',
-    twitterImage: 'https://bluelynk.dev/og-image.jpg',
+
+    twitterTitle: 'Servicios | BlueLynk',
+
+    twitterDescription:
+        'Desarrollo web, e-commerce, automatización, integraciones y soluciones digitales modernas para empresas.',
+
+    twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
+
+    // Crawlers
     robots: 'index, follow',
 })
 
 useHead({
-    htmlAttrs: { lang: 'es' },
-    link: [{ rel: 'canonical', href: 'https://bluelynk.dev/servicios' }],
+    htmlAttrs: {
+        lang: 'es',
+    },
+
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://www.bluelynk.dev/services',
+        },
+    ],
+
+    script: [
+        {
+            type: 'application/ld+json',
+
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+
+                '@type': 'ProfessionalService',
+
+                name: 'BlueLynk',
+                alternateName: [
+                    'Blue Lynk',
+                    'BlueLink',
+                    'Blue Link',
+                    'Blu Lynk',
+                    'bluelynk',
+                    'bluelink'
+                ],
+                description:
+                    'Consultora digital especializada en desarrollo web, e-commerce, automatización e integraciones para negocios.',
+                url: 'https://www.bluelynk.dev',
+                logo: 'https://www.bluelynk.dev/logo.png',
+                areaServed: {
+                    '@type': 'Country',
+                    name: 'Perú',
+                },
+                hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Servicios de BlueLynk',
+                    itemListElement: [
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'Desarrollo web',
+                            },
+                        },
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'E-commerce',
+                            },
+                        },
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'Automatización de procesos',
+                            },
+                        },
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'Integraciones API',
+                            },
+                        },
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'Desarrollo de software a medida',
+                            },
+                        },
+                        {
+                            '@type': 'Offer',
+                            itemOffered: {
+                                '@type': 'Service',
+                                name: 'Soporte y mantenimiento TI',
+                            },
+                        },
+                    ],
+                },
+            }),
+        },
+    ],
 })
 
 const activeService = ref(0)
@@ -359,7 +461,7 @@ function goToService(index: number) {
     <section class="sections light">
         <div class="why-header">
             <p class="top-title text-center">Por qué elegirnos</p>
-            <h2 class="h2 text-center">¿POR QUÉ BLUE LYNK?</h2>
+            <h2 class="h2 text-center">¿POR QUÉ BLUELYNK?</h2>
         </div>
 
         <div class="advantages-grid">

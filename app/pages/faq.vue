@@ -1,6 +1,87 @@
 <script setup lang="ts">
 import Contact from '~/components/contact.vue';
 
+useSeoMeta({
+    // SEO principal
+    title: 'Preguntas Frecuentes | BlueLynk',
+    description:
+        'Resuelve tus dudas sobre desarrollo web, e-commerce, automatización, soporte y el proceso de trabajo de BlueLynk.',
+    // Open Graph
+    ogTitle: 'Preguntas Frecuentes | BlueLynk',
+    ogDescription:
+        'Encuentra respuestas sobre nuestros servicios, tiempos de entrega, soporte y cómo trabajamos en BlueLynk.',
+    ogImage: 'https://www.bluelynk.dev/og-image.jpg',
+    ogUrl: 'https://www.bluelynk.dev/faq',
+    ogType: 'website',
+    ogLocale: 'es_PE',
+    ogSiteName: 'BlueLynk',
+    // Twitter / X
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Preguntas Frecuentes | BlueLynk',
+    twitterDescription:
+        'Conoce más sobre nuestros servicios y el proceso de trabajo de BlueLynk.',
+
+    twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
+
+    // Crawlers
+    robots: 'index, follow',
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'es',
+    },
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://www.bluelynk.dev/faq',
+        },
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                    {
+                        '@type': 'Question',
+                        name: '¿Qué servicios ofrece BlueLynk?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'BlueLynk ofrece desarrollo web, e-commerce, automatización, integraciones y soluciones digitales modernas para negocios.',
+                        },
+                    },
+                    {
+                        '@type': 'Question',
+                        name: '¿Trabajan con negocios pequeños?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Sí. Trabajamos con negocios de distintos tamaños y adaptamos las soluciones según las necesidades de cada proyecto.',
+                        },
+                    },
+                    {
+                        '@type': 'Question',
+                        name: '¿Cuánto demora un proyecto?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'El tiempo depende del alcance del proyecto. Después de evaluar tus necesidades, entregamos una propuesta clara con tiempos estimados.',
+                        },
+                    },
+                    {
+                        '@type': 'Question',
+                        name: '¿Ofrecen soporte después de entregar el proyecto?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Sí. Ofrecemos soporte, mantenimiento y mejoras continuas para asegurar el correcto funcionamiento de cada solución.',
+                        },
+                    },
+                ],
+            }),
+        },
+    ],
+})
+
 const aboutFaqs = [
     {
         q: '¿Vale la pena invertir en una web?',
@@ -44,7 +125,7 @@ const aboutFaqs = [
     },
     {
         q: '¿Incluyen dominio y hosting?',
-        a: 'Podemos asesorarte en la compra de dominio y hosting, Blue Lynk también te ofrece hostear tu web o proyecto en un subdomain ".bluelynk.dev" y un hosting gratuito dependiendo del proyecto.'
+        a: 'Podemos asesorarte en la compra de dominio y hosting, BlueLynk también te ofrece hostear tu web o proyecto en un subdomain ".bluelynk.dev" y un hosting gratuito dependiendo del proyecto.'
     },
     {
         q: '¿La web será rápida y optimizada?',

@@ -8,9 +8,9 @@ const selectedCategory = ref('all')
 
 // Actualizar SEO
 useSeoMeta({
-    title: 'Blog | Blue Lynk | Artículos sobre Web, SEO y E-commerce',
+    title: 'Artículos sobre Web, SEO y E-commerce | BlueLynk',
     description: 'Lee nuestros artículos sobre desarrollo web, SEO, e-commerce y cómo hacer crecer tu negocio digital. Tips, estrategias y guías prácticas.',
-    ogTitle: 'Blog | Blue Lynk',
+    ogTitle: 'Blog | BlueLynk',
     ogDescription: 'Aprende sobre web, SEO y negocios digitales con nuestros artículos.',
     ogImage: 'https://www.bluelynk.dev/og-image.jpg',
     ogUrl: 'https://www.bluelynk.dev/blog',
@@ -29,7 +29,15 @@ useHead({
             innerHTML: JSON.stringify({
                 '@context': 'https://schema.org',
                 '@type': 'Blog',
-                name: 'Blue Lynk Blog',
+                name: 'BlueLynk',
+                alternateName: [
+                    'Blue Lynk',
+                    'BlueLink',
+                    'Blue Link',
+                    'Blu Lynk',
+                    'bluelynk',
+                    'bluelink'
+                ],
                 description: 'Artículos sobre desarrollo web, SEO y negocios digitales',
                 url: 'https://www.bluelynk.dev/blog',
                 publisher: {
@@ -84,39 +92,37 @@ function formatDate(dateString: string) {
         </div>
     </section>
 
+    <Ticker :items="[
+        { text: 'E-commerce' },
+        { text: 'Desarrollo web a medida', highlight: true },
+        { text: 'Aplicaciones móviles' },
+        { text: 'Integraciones API', highlight: true },
+        { text: 'SaaS' },
+        { text: 'Mantenimiento y soporte', highlight: true },
+        { text: 'Hosting' },
+    ]" />
+
     <!-- Blog Section -->
     <section class="sections light">
         <!-- Filter by Category -->
         <div class="blog-filters">
-            <button
-                :class="['filter-btn', { active: selectedCategory === 'all' }]"
-                @click="selectedCategory = 'all'">
+            <button :class="['filter-btn', { active: selectedCategory === 'all' }]" @click="selectedCategory = 'all'">
                 Todos
             </button>
-            <button
-                v-for="category in categories"
-                :key="category"
-                :class="['filter-btn', { active: selectedCategory === category }]"
-                @click="selectedCategory = category">
+            <button v-for="category in categories" :key="category"
+                :class="['filter-btn', { active: selectedCategory === category }]" @click="selectedCategory = category">
                 {{ category }}
             </button>
         </div>
 
         <!-- Posts Grid -->
         <div class="blog-grid">
-            <article
-                v-for="post in filteredPosts"
-                :key="post.id"
-                class="blog-card"
-                itemscope
+            <article v-for="post in filteredPosts" :key="post.id" class="blog-card" itemscope
                 itemtype="https://schema.org/BlogPosting">
-                
+
                 <!-- Post Image -->
                 <div class="blog-image">
-                    <img
-                        :src="post.image"
-                        :alt="post.imageAlt"
-                        loading="lazy">
+                    <img :src="post.image" :alt="post.imageAlt" loading="lazy">
                     <div class="blog-category">{{ post.category }}</div>
                 </div>
 
@@ -141,9 +147,7 @@ function formatDate(dateString: string) {
                         <div class="blog-author">
                             <span class="author-name">Por {{ post.author }}</span>
                         </div>
-                        <NuxtLink
-                            :to="`/blog/${post.slug}`"
-                            class="blog-link">
+                        <NuxtLink :to="`/blog/${post.slug}`" class="blog-link">
                             Leer más →
                         </NuxtLink>
                     </div>

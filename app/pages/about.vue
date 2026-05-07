@@ -1,7 +1,85 @@
 <script setup lang="ts">
-// About Page - Version 2: Diseño Propuesto (Moderno y Atrevido)
-</script>
+useSeoMeta({
+    // SEO principal
+    title: 'Nosotros | BlueLynk',
+    description:
+        'Conoce BlueLynk, una consultora digital en Lima enfocada en desarrollo web, automatización y soluciones modernas para negocios que quieren crecer.',
+    // Open Graph
+    ogTitle: 'Nosotros | BlueLynk',
+    ogDescription:
+        'Diseñamos experiencias digitales modernas, funcionales y pensadas para el crecimiento de tu negocio.',
+    ogImage: 'https://www.bluelynk.dev/og-image.jpg',
+    ogUrl: 'https://www.bluelynk.dev/about',
+    ogType: 'website',
+    ogLocale: 'es_PE',
+    ogSiteName: 'BlueLynk',
+    // Twitter / X
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Nosotros | BlueLynk',
+    twitterDescription:
+        'Conoce al equipo detrás de BlueLynk y nuestra forma de trabajar.',
+    twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
+    // Crawlers
+    robots: 'index, follow',
+})
 
+useHead({
+    htmlAttrs: {
+        lang: 'es',
+    },
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://www.bluelynk.dev/about',
+        },
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'AboutPage',
+                name: 'Sobre BlueLynk',
+                description:
+                    'BlueLynk es una consultora digital peruana especializada en desarrollo web, automatización y soluciones digitales modernas.',
+                url: 'https://www.bluelynk.dev/about',
+                mainEntity: {
+                    '@type': 'Organization',
+                    name: 'BlueLynk',
+                    alternateName: [
+                        'Blue Lynk',
+                        'BlueLink',
+                        'Blue Link',
+                        'Blu Lynk',
+                        'bluelynk',
+                        'bluelink'
+                    ],
+                    url: 'https://www.bluelynk.dev',
+                    logo: 'https://www.bluelynk.dev/logo.png',
+                    foundingDate: '2026',
+                    foundingLocation: {
+                        '@type': 'Place',
+                        name: 'Lima, Perú',
+                    },
+                    founders: [
+                        {
+                            '@type': 'Person',
+                            name: 'Daniel C.',
+                            jobTitle: 'Creative Director',
+                        },
+                        {
+                            '@type': 'Person',
+                            name: 'Nicolas A.',
+                            jobTitle: 'Tech Lead',
+                        },
+                    ],
+                    sameAs: [],
+                },
+            }),
+        },
+    ],
+})
+</script>
 <template>
     <!-- Hero -->
     <section class="hero">
@@ -34,48 +112,36 @@
         { text: 'Hosting' },
     ]" />
 
-    <!-- Filosofía -->
-    <section class="sections divided light">
-        <div class="philosophy-text">
-            <p class="top-title">Por qué existimos</p>
-            <h2 class="h2">FILOSOFÍA</h2>
-            <p class="sec-sub">En Perú hay miles de empresas que pierden clientes diarios por no tener presencia
-                digital real. Vimos eso y decidimos cambiar el juego.</p>
-            <div class="philosophy-checks">
-                <div class="philosophy-point">
-                    <div class="philosophy-icon">✓</div>
-                    <div>
-                        <h3 class="h3 dark-text">Sin excusas de presupuesto</h3>
-                        <p class="p-card">Soluciones escalables que crecen con tu negocio, no al revés.</p>
-                    </div>
-                </div>
-                <div class="philosophy-point">
-                    <div class="philosophy-icon">✓</div>
-                    <div>
-                        <h3 class="h3 dark-text">Tecnología transparente</h3>
-                        <p class="p-card">Te explicamos qué hacemos, por qué y cuál es el resultado real.</p>
-                    </div>
-                </div>
-                <div class="philosophy-point">
-                    <div class="philosophy-icon">✓</div>
-                    <div>
-                        <h3 class="h3 dark-text">Socios, no proveedores</h3>
-                        <p class="p-card">Tu éxito es nuestro éxito. Crecemos juntos en tiempo real.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Nosotros -->
+    <section class="sections light">
+        <div class="content-center">
+            <p class="top-title">Quiénes somos</p>
+            <h2 class="h2 text-center">NOSOTROS</h2>
         </div>
-        <div class="philosophy-visual">
-            <div class="philosophy-box">
-                <div class="philosophy-blob">
-                    <div class="philosophy-inner">
-                        <p class="dark-text h3 text-center">
-                            "Hacemos que la tecnología trabaje para tu negocio"
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <p class="section-description">
+            En Blue Lynk creemos que la tecnología debería ayudar a los negocios a crecer,
+            no complicarles el proceso. Creamos soluciones digitales modernas, claras y
+            funcionales para marcas que quieren dar el siguiente paso.
+        </p>
+
+        <p class="section-description">
+            Somos un equipo de diseñadores y desarrolladores enfocados en construir
+            experiencias digitales que se vean bien, funcionen rápido y transmitan confianza.
+            Cada proyecto se desarrolla pensando en las necesidades reales de cada cliente,
+            no en plantillas genéricas.
+        </p>
+
+        <p class="section-description">
+            Nos gusta trabajar de forma cercana y transparente. Explicamos cada etapa del
+            proceso de manera simple, mantenemos comunicación constante y buscamos que
+            cada decisión tenga un propósito claro.
+        </p>
+
+        <p class="section-description">
+            Más que entregar páginas web, buscamos crear herramientas que aporten valor,
+            mejoren la presencia digital de cada negocio y acompañen su crecimiento a largo plazo.
+        </p>
     </section>
 
     <!-- Pilares -->
@@ -231,65 +297,45 @@
 </template>
 
 <style scoped>
-
-/* FILOSOFIA */
-.philosophy-text {
-    max-width: 500px;
-}
-
-.philosophy-checks {
-    margin-top: 2rem;
-    display: grid;
-    gap: 1.5rem;
-}
-
-.philosophy-point {
-    display: flex;
-    gap: 1.25rem;
-}
-
-.philosophy-icon {
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    font-weight: bold;
-    flex-shrink: 0;
-    margin-top: 0.25rem;
-}
-
-.philosophy-point .p-card {
+/* NOSOTROS y FILOSOFÍA */
+.section-description {
+    max-width: 750px;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+    line-height: 1.8;
     color: var(--color-text-on-light-muted);
+    text-align: center;
 }
 
-.philosophy-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.darkest .section-description {
+    color: var(--color-text-on-dark-muted);
 }
 
-.philosophy-box {
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--color-bg-light) 0%, rgba(90, 140, 255, 0.1) 100%);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border: 2px solid rgba(90, 140, 255, 0.2);
+.philosophy-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
 }
 
-.philosophy-blob {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(90, 140, 255, 0.15) 0%, rgba(90, 140, 255, 0.05) 100%);
+.value-item {
+    text-align: center;
 }
 
-.philosophy-inner {
-    padding: 2rem;
+.value-item h3 {
+    margin-bottom: 1rem;
+    color: var(--color-bg-lightest);
+}
+
+.value-item p {
+    margin: 0;
+}
+
+.philosophy-closing {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(244, 246, 255, 0.15);
 }
 
 /* TEAM */
