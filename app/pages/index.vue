@@ -1,22 +1,22 @@
 <script setup lang="ts">
-
+import posts from '~/composables/posts.json'
 useSeoMeta({
     // Se muestra en los resultados de busqueda
-    title: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
+    title: 'Consultoría y Desarrollo Web en Lima | BlueLynk',
     description: 'Diseñamos sitios web, e-commerce y soluciones digitales para PYMEs peruanas. Rápido, moderno y sin complicaciones. Lima, Perú.',
 
     // WhatsApp, Facebook, LinkedIn
-    ogTitle: 'Consultoría y Desarrollo Web | Blue Lynk',
+    ogTitle: 'Consultoría y Desarrollo Web | BlueLynk',
     ogDescription: 'Soluciones digitales para PYMEs peruanas: sitios web, e-commerce, automatización y más.',
     ogImage: 'https://www.bluelynk.dev/og-image.jpg', // 1200×630px
     ogUrl: 'https://www.bluelynk.dev',
     ogType: 'website',
     ogLocale: 'es_PE',
-    ogSiteName: 'Blue Lynk',
+    ogSiteName: 'BlueLynk',
 
     // Twitter/X 
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Consultoría y Desarrollo Web en Lima | Blue Lynk',
+    twitterTitle: 'Consultoría y Desarrollo Web en Lima | BlueLynk',
     twitterDescription: 'Hacemos crecer a los negocios peruanos con tecnología accesible.',
     twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
 
@@ -34,7 +34,15 @@ useHead({
             innerHTML: JSON.stringify({
                 '@context': 'https://schema.org',
                 '@type': 'ProfessionalService',
-                name: 'Blue Lynk',
+                name: 'BlueLynk',
+                alternateName: [
+                    'Blue Lynk',
+                    'BlueLink',
+                    'Blue Link',
+                    'Blu Lynk',
+                    'bluelynk',
+                    'bluelink'
+                ],
                 description: 'Agencia de desarrollo web y soluciones digitales para PYMEs peruanas.',
                 url: 'https://www.bluelynk.dev',
                 logo: 'https://www.bluelynk.dev/logo.png',
@@ -52,7 +60,7 @@ useHead({
                 },
                 hasOfferCatalog: {
                     '@type': 'OfferCatalog',
-                    name: 'Servicios de Blue Lynk',
+                    name: 'Servicios de BlueLynk',
                     itemListElement: [
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Desarrollo de sitios web' } },
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-commerce' } },
@@ -73,6 +81,10 @@ useHead({
 
 const homeFaqs = [
     {
+        q: '¿Vale la pena invertir en una web?',
+        a: 'Una web profesional mejora tu presencia online, genera confianza y puede ayudarte a conseguir más clientes.'
+    },
+    {
         q: '¿Cuánto tiempo toma un proyecto?',
         a: 'Depende del alcance. Un sitio web informativo puede estar listo en 2–3 semanas. Un e-commerce puede tomar de 4 a 8 semanas.'
     },
@@ -90,6 +102,12 @@ const homeFaqs = [
     }
 ]
 
+const latestPosts = computed(() => {
+    return posts
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 2)
+})
+
 </script>
 
 <template>
@@ -97,7 +115,7 @@ const homeFaqs = [
     <section class="hero">
         <div class="hero-glow"></div>
         <div class="hero-content content-center-md">
-            <p class="top-title text-md-center">Soluciones digitales · Lima, Perú</p>
+            <p class="top-title text-md-center">Consultoría y Desarrollo Web en Lima, Perú</p>
             <h1 class="hero-h h1 text-md-center">
                 TU EMPRESA <em>PREPARADA</em><br>PARA EL FUTURO
             </h1>
@@ -234,7 +252,7 @@ const homeFaqs = [
             <h2 class="h2">TECNOLOGÍA CON ENFOQUE EN RESULTADOS</h2>
 
             <p class="sec-sub">
-                En Blue Lynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
+                En BlueLynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
                 optimizar sus procesos y fortalecer su presencia digital. Nos enfocamos en entender cada
                 negocio y construir herramientas que generen impacto real.
             </p>
@@ -266,13 +284,61 @@ const homeFaqs = [
                     Creemos que la tecnología debe adaptarse al negocio, no al revés. Por eso,
                     diseñamos soluciones prácticas, escalables y alineadas a los objetivos de cada cliente.
                 </p>
-                <div class="about-quote-sig vivid-text">— Blue Lynk</div>
+                <div class="about-quote-sig vivid-text">— BlueLynk</div>
             </div>
         </div>
     </section>
 
     <!--FAQ Section -->
     <FaqSection :faqs="homeFaqs" />
+
+    <section class="sections light" id="blog">
+        <p class="top-title">
+            Blog de desarrollo web en Lima para empresas
+        </p>
+
+        <h2 class="h2">ARTÍCULOS Y GUÍAS</h2>
+
+        <p class="sec-sub">
+            Aprende cómo llevar tu negocio al siguiente nivel con estrategias de desarrollo web,
+            SEO y e-commerce en Perú. Compartimos guías prácticas para ayudarte a tener
+            <strong>tu empresa preparada para el futuro</strong> con herramientas digitales
+            modernas y efectivas.
+        </p>
+        <div class="blog-grid">
+            <article v-for="post in latestPosts" :key="post.id" class="blog-card">
+                <div class="blog-image">
+                    <img :src="post.image" :alt="post.imageAlt" loading="lazy">
+                </div>
+
+                <div class="blog-content">
+                    <p class="blog-category">{{ post.category }}</p>
+
+                    <h3 class="blog-title h4">
+                        <NuxtLink :to="`/blog/${post.slug}`">
+                            {{ post.title }}
+                        </NuxtLink>
+                    </h3>
+
+                    <p class="blog-description">
+                        {{ post.description }}
+                    </p>
+
+                    <NuxtLink :to="`/blog/${post.slug}`" class="blog-link">
+                        Leer más →
+                    </NuxtLink>
+                </div>
+            </article>
+        </div>
+
+        <!-- CTA -->
+        <div class="block-button">
+            <UiBtnDark variant="btn-primary" to="/blog">
+                Ver todos los artículos
+            </UiBtnDark>
+        </div>
+
+    </section>
 
     <!-- Contact Section -->
     <Contact />
@@ -412,5 +478,15 @@ const homeFaqs = [
     font-size: .75rem;
     color: var(--color-text-on-light-muted);
     margin-top: .2rem
+}
+
+/* Services */
+.svc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Posts */
+.blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 </style>

@@ -49,6 +49,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     background: var(--color-bg);
@@ -120,6 +124,14 @@ section {
     width: 100%;
 }
 
+strong{
+    color: var(--color-bg-dark);
+}
+
+a{
+    text-decoration: none;
+}
+
 .sections {
     padding: 5rem 3rem;
 }
@@ -132,7 +144,7 @@ section {
 }
 
 .hero {
-    min-height: calc(100lvh - 115px);
+    min-height: calc(100vh - 105px);
     padding: 2.5rem;
     display: grid;
     grid-template-columns: 1fr;
