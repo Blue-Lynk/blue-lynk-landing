@@ -82,24 +82,28 @@ useHead({
 
 const homeFaqs = [
     {
-        q: '¿Vale la pena invertir en una web?',
-        a: 'Una web profesional mejora tu presencia online, genera confianza y puede ayudarte a conseguir más clientes.'
+        q: '¿Por qué mi PyME necesita una página web profesional?',
+        a: 'Una web bien diseñada mejora la presencia online de tu empresa y transmite confianza. Al integrar palabras clave relevantes (“sitios web para pymes”, “desarrollo web para empresas”), también aumentas la visibilidad en Google. En resumen, un sitio profesional atrae más clientes y legitima tu negocio.'
     },
     {
-        q: '¿Cuánto tiempo toma un proyecto?',
-        a: 'Depende del alcance. Un sitio web informativo puede estar listo en 2–3 semanas. Un e-commerce puede tomar de 4 a 8 semanas.'
+        q: '¿Cuánto demora el desarrollo de mi sitio web?',
+        a: 'Depende de la complejidad. Un sitio corporativo sencillo suele estar listo en 2–3 semanas. Dividimos el proyecto en etapas: definición de alcance, diseño, desarrollo, pruebas y lanzamiento (cada etapa debidamente planificada).'
     },
     {
-        q: '¿Trabajan con empresas fuera de Lima?',
-        a: 'Sí, trabajamos con clientes en todo el Perú y también en el extranjero. Todo el proceso es 100% remoto.'
+        q: '¿Pueden trabajar con empresas fuera de Lima?',
+        a: 'Sí. Blue Lynk atiende clientes en todo Perú y en el extranjero mediante un proceso 100% remoto. Usamos reuniones en línea y herramientas colaborativas para gestionar cada fase (reunión inicial, revisión de diseño, feedback, etc.) de forma ágil y transparente.'
     },
     {
-        q: '¿Qué incluye el soporte post-entrega?',
-        a: 'Todos los proyectos incluyen 30 días de soporte gratuito. Después, ofrecemos planes de mantenimiento mensual.'
+        q: '¿Qué incluye el soporte post-lanzamiento?',
+        a: 'Todos nuestros proyectos incluyen 30 días de soporte gratuito para ajustes y corrección de errores menores. Luego ofrecemos planes de mantenimiento mensual (actualizaciones de contenido, seguridad, backups). '
     },
     {
-        q: '¿Cómo son los pagos?',
-        a: 'Trabajamos con pagos fraccionados: 50% al inicio del proyecto y 50% a la entrega.'
+        q: '¿Cómo son los pagos y la modalidad de trabajo?',
+        a: 'Trabajamos con pagos fraccionados: 50% al inicio del proyecto y 50% al terminar. Así mismo, seguimos una metodología clara: primero analizamos tus objetivos y diseñamos el prototipo, luego desarrollamos y entregamos fases parciales para tu revisión. Este esquema brinda seguridad financiera y visibilidad del progreso.'
+    },
+    {
+        q: '¿Mi sitio será responsive (adaptable a móviles)?',
+        a: 'Sí. Todos nuestros desarrollos son responsive, es decir, están optimizados para verse bien en móviles, tablets y computadoras. Esto es imprescindible hoy en día, pues el 80–90% de usuarios navegan desde dispositivos móviles. Así garantizamos una buena experiencia de usuario y mejor posicionamiento SEO.'
     }
 ]
 
