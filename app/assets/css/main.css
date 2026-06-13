@@ -175,7 +175,12 @@ em {
 .sec-sub {
     max-width: 480px;
     line-height: 1.5;
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
+}
+
+.mid .sec-sub, .mid .h2, .mid .top-title {
+    justify-self: center;
+    text-align: center;
 }
 
 .top-title {
