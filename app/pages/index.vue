@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import posts from '~/composables/posts.json'
 useSeoMeta({
     // Se muestra en los resultados de busqueda
@@ -105,9 +106,81 @@ const homeFaqs = [
 const latestPosts = computed(() => {
     return posts
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, 2)
+        .slice(0, 3)
 })
 
+/* ----------------------------------------------------------
+   Services list (link-row style instead of cards)
+---------------------------------------------------------- */
+const services = [
+    {
+        title: 'SITIOS WEB',
+        desc: 'Páginas modernas, rápidas y orientadas a conversión, alineadas a tu marca.',
+        icon: `<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>`
+    },
+    {
+        title: 'DESARROLLO DE SOLUCIONES',
+        desc: 'Plataformas, sistemas internos y MVPs a medida que escalan junto con tu negocio.',
+        icon: `<svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6" /></svg>`
+    },
+    {
+        title: 'ANALÍTICA DE DATOS',
+        desc: 'Dashboards, BI y modelado de datos para tomar mejores decisiones basadas en información real.',
+        icon: `<svg viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 16l4-6 4 3 5-8" /></svg>`
+    },
+]
+
+/* ----------------------------------------------------------
+   About stats — count-up on scroll into view
+---------------------------------------------------------- */
+const aboutStats = [
+    { value: 2026, suffix: '', label: 'Fundada en Lima', isYear: true },
+    { value: 2, suffix: '+', label: 'Proyectos implementados' },
+    { value: 2, suffix: '+', label: 'Industrias atendidas' },
+    { value: 100, suffix: '%', label: 'Enfoque en satisfacción' },
+]
+
+const statRefs = ref<HTMLElement[]>([])
+const statDisplay = ref(aboutStats.map(s => (s.isYear ? s.value : 0)))
+let statsObserver: IntersectionObserver | null = null
+
+function animateStat(index: number) {
+    const target = aboutStats[index]
+    if (target?.isYear) {
+        statDisplay.value[index] = target?.value
+        return
+    }
+    const duration = 1200
+    const start = performance.now()
+    const from = 0
+    const to = target?.value || 0
+
+    function tick(now: number) {
+        const progress = Math.min((now - start) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        statDisplay.value[index] = Math.round(from + (to - from) * eased)
+        if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+}
+
+onMounted(() => {
+    statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = Number((entry.target as HTMLElement).dataset.statIndex)
+                animateStat(idx)
+                statsObserver?.unobserve(entry.target)
+            }
+        })
+    }, { threshold: 0.4 })
+
+    statRefs.value.forEach(el => el && statsObserver?.observe(el))
+})
+
+onUnmounted(() => {
+    statsObserver?.disconnect()
+})
 </script>
 
 <template>
@@ -142,72 +215,36 @@ const latestPosts = computed(() => {
     ]" />
 
     <!-- Services Section -->
-    <section class="sec sections light" id="servicios">
+    <section class="sec sections light mid" id="servicios">
         <p class="top-title">Qué hacemos</p>
         <h2 class="h2">NUESTROS SERVICIOS</h2>
         <p class="sec-sub">Soluciones tecnológicas diseñadas para optimizar operaciones, mejorar la gestión
             y acelerar el crecimiento de tu negocio.
         </p>
-        <div class="svc-grid">
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                        <path d="M8 21h8M12 17v4" />
-                    </svg></div>
-                <h3 class="h3">SITIOS WEB</h3>
-                <p class="p">Diseñamos páginas web modernas, rápidas y orientadas a conversión,
-                    alineadas a la identidad de tu marca y optimizadas para captar clientes.</p>
-            </div>
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <circle cx="9" cy="21" r="1" />
-                        <circle cx="20" cy="21" r="1" />
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                    </svg></div>
-                <h3 class="h3">E-COMMERCE</h3>
-                <p class="p">Implementamos tiendas online completas con pasarelas de pago locales,
-                    gestión de inventario y una experiencia de compra optimizada.</p>
-            </div>
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg></div>
-                <h3 class="h3">INTEGRACIONES</h3>
-                <p class="p">Conectamos tus sistemas, plataformas y herramientas para centralizar
-                    información, automatizar procesos y evitar trabajo duplicado.</p>
-            </div>
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <path d="M18 20V10M12 20V4M6 20v-6" />
-                    </svg></div>
-                <h3 class="h3">DESARROLLO DE SOLUCIONES</h3>
-                <p class="p">Creamos plataformas, sistemas internos y MVPs a medida que se adaptan
-                    a tus procesos y escalan junto con tu negocio.</p>
-            </div>
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="3" />
-                        <path
-                            d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-                    </svg></div>
-                <h3 class="h3">AUTOMATIZACIÓN</h3>
-                <p class="p">Automatizamos tareas operativas mediante flujos inteligentes: reportes,
-                    notificaciones, integraciones y procesos repetitivos.</p>
-            </div>
-            <div class="svc-card">
-                <div class="svc-icon"><svg viewBox="0 0 24 24">
-                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-                    </svg></div>
-                <h3 class="h3">SOPORTE TI</h3>
-                <p class="p">Brindamos soporte técnico, mantenimiento y asesoría continua para asegurar
-                    la estabilidad y seguridad de tu operación tecnológica.</p>
-            </div>
+
+        <div class="services-list">
+            <NuxtLink
+                v-for="(service, i) in services"
+                :key="service.title"
+                to="/contact"
+                class="service-row"
+                :class="{ 'service-row-large': i === 0 }"
+            >
+                <span class="service-index">{{ String(i + 1).padStart(2, '0') }}</span>
+                <span class="service-icon" v-html="service.icon"></span>
+                <span class="service-text">
+                    <span class="service-title">{{ service.title }}</span>
+                    <span class="service-desc">{{ service.desc }}</span>
+                </span>
+                <span class="service-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                </span>
+            </NuxtLink>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section class="sections darkest" id="portafolio">
+    <section class="sections darkest mid" id="portafolio">
         <p class="top-title">Trabajo reciente</p>
         <h2 class="h2">PORTAFOLIO</h2>
         <p class="sec-sub">Proyectos que transformaron negocios reales.</p>
@@ -257,22 +294,16 @@ const latestPosts = computed(() => {
                 negocio y construir herramientas que generen impacto real.
             </p>
 
-            <div class="svc-grid">
-                <div class="svc-card">
-                    <div class="about-num-n">2026</div>
-                    <div class="about-num-l">Fundada en Lima</div>
-                </div>
-                <div class="svc-card">
-                    <div class="about-num-n ">2+</div>
-                    <div class="about-num-l">Proyectos implementados</div>
-                </div>
-                <div class="svc-card">
-                    <div class="about-num-n">2+</div>
-                    <div class="about-num-l">Industrias atendidas</div>
-                </div>
-                <div class="svc-card">
-                    <div class="about-num-n">100%</div>
-                    <div class="about-num-l">Enfoque en satisfacción</div>
+            <div class="about-stats">
+                <div
+                    v-for="(stat, i) in aboutStats"
+                    :key="stat.label"
+                    class="about-stat"
+                    :data-stat-index="i"
+                    :ref="el => { if (el) statRefs[i] = el as HTMLElement }"
+                >
+                    <div class="about-stat-n">{{ statDisplay[i] }}{{ stat.suffix }}</div>
+                    <div class="about-stat-l">{{ stat.label }}</div>
                 </div>
             </div>
         </div>
@@ -292,7 +323,8 @@ const latestPosts = computed(() => {
     <!--FAQ Section -->
     <FaqSection :faqs="homeFaqs" />
 
-    <section class="sections light" id="blog">
+    <!-- Blog Section -->
+    <section class="sections light mid" id="blog">
         <p class="top-title">
             Blog de desarrollo web en Lima para empresas
         </p>
@@ -305,30 +337,29 @@ const latestPosts = computed(() => {
             <strong>tu empresa preparada para el futuro</strong> con herramientas digitales
             modernas y efectivas.
         </p>
-        <div class="blog-grid">
-            <article v-for="post in latestPosts" :key="post.id" class="blog-card">
-                <div class="blog-image">
+
+        <div class="post-list">
+            <NuxtLink
+                v-for="(post, i) in latestPosts"
+                :key="post.id"
+                :to="`/blog/${post.slug}`"
+                class="post-row"
+                :class="{ 'post-row-featured': i === 0 }"
+            >
+                <div class="post-row-image">
                     <img :src="post.image" :alt="post.imageAlt" loading="lazy">
                 </div>
 
-                <div class="blog-content">
-                    <p class="blog-category">{{ post.category }}</p>
-
-                    <h3 class="blog-title h4">
-                        <NuxtLink :to="`/blog/${post.slug}`">
-                            {{ post.title }}
-                        </NuxtLink>
-                    </h3>
-
-                    <p class="blog-description">
-                        {{ post.description }}
-                    </p>
-
-                    <NuxtLink :to="`/blog/${post.slug}`" class="blog-link">
-                        Leer más →
-                    </NuxtLink>
+                <div class="post-row-body">
+                    <p class="post-row-category">{{ post.category }}</p>
+                    <h3 class="post-row-title">{{ post.title }}</h3>
+                    <p class="post-row-desc">{{ post.description }}</p>
+                    <span class="post-row-link">
+                        Leer artículo
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    </span>
                 </div>
-            </article>
+            </NuxtLink>
         </div>
 
         <!-- CTA -->
@@ -404,20 +435,241 @@ const latestPosts = computed(() => {
     margin-bottom: .8rem
 }
 
-/* About Section */
-
-.about-num-n {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    color: var(--color-primary);
+/* ============================================
+   SERVICES — link-row layout
+============================================ */
+.services-list {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(81, 112, 255, 0.18);
 }
 
-.about-num-l {
+.service-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.75rem 0.5rem;
+    border-bottom: 1px solid rgba(81, 112, 255, 0.18);
+    text-decoration: none;
+    transition: background-color .25s, padding-left .25s;
+}
+
+.service-row:hover {
+    background: rgba(81, 112, 255, 0.06);
+    padding-left: 1.25rem;
+}
+
+/* Desktop split: big card left half, two stacked right half */
+@media (min-width: 836px) {
+    .services-list {
+        margin-top: 2.5rem;
+        border-top: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.5rem;
+        min-height: 560px;
+    }
+
+    .service-row {
+        border: 1px solid rgba(81, 112, 255, 0.18);
+        border-radius: 16px;
+        padding: 2.5rem;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "index arrow"
+            "icon  icon"
+            "text  text";
+        align-content: start;
+        gap: 1.25rem;
+        height: 100%;
+    }
+
+    .service-row:hover {
+        padding-left: 2.5rem;
+        padding-top: 2.5rem;
+    }
+
+    /* First service: big, occupies full left column */
+    .service-row-large {
+        grid-row: 1 / 3;
+        grid-column: 1;
+        justify-content: center;
+        padding: 3rem;
+    }
+
+    .service-row-large:hover {
+        padding: 3rem;
+    }
+
+    /* Second & third: stacked on the right column */
+    .service-row:not(.service-row-large) {
+        grid-column: 2;
+    }
+
+    .service-row:nth-child(2) {
+        grid-row: 1;
+    }
+
+    .service-row:nth-child(3) {
+        grid-row: 2;
+    }
+
+    .service-row .service-index {
+        grid-area: index;
+    }
+
+    .service-row .service-icon {
+        grid-area: icon;
+        width: 56px;
+        height: 56px;
+    }
+
+    .service-row .service-icon :deep(svg) {
+        width: 26px;
+        height: 26px;
+    }
+
+    .service-row .service-text {
+        grid-area: text;
+        margin-top: .5rem;
+    }
+
+    .service-row .service-arrow {
+        grid-area: arrow;
+        justify-self: end;
+    }
+
+    .service-row-large .service-icon {
+        width: 72px;
+        height: 72px;
+    }
+
+    .service-row-large .service-icon :deep(svg) {
+        width: 32px;
+        height: 32px;
+    }
+
+    .service-row-large .service-title {
+        font-size: 2.4rem;
+    }
+
+    .service-row-large .service-desc {
+        font-size: 1rem;
+        max-width: 40ch;
+    }
+}
+
+.service-index {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    opacity: .55;
+    min-width: 2.5ch;
+}
+
+.service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: var(--color-card-border-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-icon :deep(svg) {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-width: 1.8;
+}
+
+.service-text {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    min-width: 0;
+}
+
+.service-title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--color-bg-darkest);
+}
+
+.service-desc {
+    font-size: .9rem;
+    line-height: 1.6;
+    color: var(--color-text-on-light-muted);
+    max-width: 60ch;
+}
+
+.service-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(81, 112, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color .25s, border-color .25s, transform .25s;
+}
+
+.service-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-width: 2;
+    transition: stroke .25s;
+}
+
+.service-row:hover .service-arrow {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: rotate(45deg);
+}
+
+.service-row:hover .service-arrow svg {
+    stroke: var(--color-bg-lightest);
+}
+
+/* ============================================
+   ABOUT STATS — loose statistics, no cards
+============================================ */
+.about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 3rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(81, 112, 255, 0.18);
+}
+
+.about-stat {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.about-stat-n {
+    font-family: var(--font-title);
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--color-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.about-stat-l {
     font-size: .78rem;
     color: var(--color-text-on-light-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: .2rem
 }
 
 .about-quote {
@@ -439,45 +691,110 @@ const latestPosts = computed(() => {
     margin-top: 1.25rem;
 }
 
-.team-row {
+/* ============================================
+   BLOG — magazine row layout
+============================================ */
+.post-list {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
 }
 
-.team-card {
-    background: var(--color-bg-lightest);
-    border-radius: 12px;
-    padding: 1rem;
-    flex: 1;
-    border: 1px solid rgba(81, 112, 255, 0.1);
-    text-align: center
-}
-
-.team-av {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    display: flex;
+.post-row {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
-    font-family: var(--font-title);
-    font-size: 1rem;
-    color: var(--color-bg-lightest);
-    margin: 0 auto .75rem
+    text-decoration: none;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(81, 112, 255, 0.18);
+    transition: padding-left .25s;
 }
 
-.team-name {
-    font-size: .85rem;
-    font-weight: 500;
-    color: var(--color-bg-darkest)
+.post-list .post-row:first-child {
+    border-top: 1px solid rgba(81, 112, 255, 0.18);
 }
 
-.team-role {
+.post-row:hover {
+    padding-left: 1rem;
+}
+
+.post-row-image {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+}
+
+.post-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.post-row:hover .post-row-image img {
+    transform: scale(1.05);
+}
+
+.post-row-body {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    min-width: 0;
+}
+
+.post-row-category {
     font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.post-row-title {
+    font-family: var(--font-title);
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    color: var(--color-bg-darkest);
+    max-width: 28ch;
+}
+
+.post-row-desc {
+    font-size: .95rem;
+    line-height: 1.65;
     color: var(--color-text-on-light-muted);
-    margin-top: .2rem
+    max-width: 60ch;
+}
+
+.post-row-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .5rem;
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--color-primary);
+}
+
+.post-row-link svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-width: 2;
+    transition: transform .25s;
+}
+
+.post-row:hover .post-row-link svg {
+    transform: translateX(4px);
+}
+
+.post-row-featured .post-row-title {
+    font-size: 2.4rem;
 }
 
 /* Services */
@@ -485,8 +802,58 @@ const latestPosts = computed(() => {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Posts */
-.blog-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 835px) {
+    .service-row {
+        grid-template-columns: auto 1fr auto;
+        gap: 1rem;
+    }
+
+    .service-index {
+        display: none;
+    }
+
+    .post-row,
+    .post-row-featured {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .post-row-title,
+    .post-row-featured .post-row-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 475px) {
+    .about-stats {
+        gap: 2rem;
+        justify-content: space-between;
+    }
+
+    .about-stat-n {
+        font-size: 2.4rem;
+    }
+
+    .service-row {
+        gap: .75rem;
+        padding: 1.25rem 0.25rem;
+    }
+
+    .service-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .service-title {
+        font-size: 1.25rem;
+    }
+
+    .service-arrow {
+        width: 34px;
+        height: 34px;
+    }
 }
 </style>

@@ -18,7 +18,7 @@ const toggleFaq = (index: number) => {
 </script>
 
 <template>
-    <section class="sections lightest" id="faq">
+    <section class="sections lightest mid" id="faq">
         <div class="faq-container">
             <p class="top-title">Resolvemos tus dudas</p>
             <h2 class="h2">Preguntas frecuentes</h2>

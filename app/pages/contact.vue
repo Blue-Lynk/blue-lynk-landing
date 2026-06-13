@@ -82,7 +82,6 @@ import ContactForm from '~/components/contact/ContactForm.vue'
 </script>
 
 <template>
-    <Contact />
   <main class="contact-page">
 
     <!-- HERO -->
@@ -91,7 +90,7 @@ import ContactForm from '~/components/contact/ContactForm.vue'
 
       <h1>
         Hablemos sobre
-        <span>tu proyecto</span>
+        <em>tu proyecto</em>
       </h1>
 
       <p class="hero-sub">
