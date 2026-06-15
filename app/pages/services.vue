@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
     title: 'Servicios | BlueLynk',
-    description: 'Descubre los servicios de BlueLynk: desarrollo web, e-commerce, automatización, integraciones, SaaS y soporte tecnológico para empresas.',
+    description: 'Descubre los servicios de BlueLynk: desarrollo web, desarrollo de soluciones y análisis de datos para empresas.',
     ogTitle: 'Servicios | BlueLynk',
     ogDescription: 'Creamos soluciones digitales modernas para negocios que buscan crecer, optimizar procesos y fortalecer su presencia digital.',
     ogImage: 'https://www.bluelynk.dev/og-image.jpg',
@@ -11,7 +11,7 @@ useSeoMeta({
     ogSiteName: 'BlueLynk',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Servicios | BlueLynk',
-    twitterDescription: 'Desarrollo web, e-commerce, automatización, integraciones y soluciones digitales modernas para empresas.',
+    twitterDescription: 'Desarrollo web, desarrollo de soluciones y análisis de datos para empresas.',
     twitterImage: 'https://www.bluelynk.dev/og-image.jpg',
     robots: 'index, follow',
 })
@@ -26,7 +26,7 @@ useHead({
             '@type': 'ProfessionalService',
             name: 'BlueLynk',
             alternateName: ['Blue Lynk', 'BlueLink', 'Blue Link', 'bluelynk'],
-            description: 'Consultora digital especializada en desarrollo web, e-commerce, automatización e integraciones para negocios.',
+            description: 'Consultora digital especializada en desarrollo web, desarrollo de soluciones y análisis de datos para negocios.',
             url: 'https://www.bluelynk.dev',
             logo: 'https://www.bluelynk.dev/logo.png',
             areaServed: { '@type': 'Country', name: 'Perú' },
@@ -188,7 +188,7 @@ const whyItems = [
     </section>
 
     <!-- Why BlueLynk -->
-    <section class="sections darkest">
+    <section class="sections darkest mid-sm">
         <div class="why-intro">
             <div>
                 <p class="top-title">Por qué elegirnos</p>
