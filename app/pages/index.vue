@@ -64,9 +64,8 @@ useHead({
                     name: 'Servicios de BlueLynk',
                     itemListElement: [
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Desarrollo de sitios web' } },
-                        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-commerce' } },
+                        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Análisis de datos' } },
                         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automatización de procesos' } },
-                        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Soporte TI' } },
                     ],
                 },
                 founder: [
@@ -83,7 +82,7 @@ useHead({
 const homeFaqs = [
     {
         q: '¿Por qué mi PyME necesita una página web profesional?',
-        a: 'Una web bien diseñada mejora la presencia online de tu empresa y transmite confianza. Al integrar palabras clave relevantes (“sitios web para pymes”, “desarrollo web para empresas”), también aumentas la visibilidad en Google. En resumen, un sitio profesional atrae más clientes y legitima tu negocio.'
+        a: 'Una web bien diseñada mejora la presencia online de tu empresa y transmite confianza. En resumen, un sitio profesional atrae más clientes y legitima tu negocio.'
     },
     {
         q: '¿Cuánto demora el desarrollo de mi sitio web?',
@@ -139,9 +138,9 @@ const services = [
 ---------------------------------------------------------- */
 const aboutStats = [
     { value: 2026, suffix: '', label: 'Fundada en Lima', isYear: true },
-    { value: 2, suffix: '+', label: 'Proyectos implementados' },
-    { value: 2, suffix: '+', label: 'Industrias atendidas' },
-    { value: 100, suffix: '%', label: 'Enfoque en satisfacción' },
+    { value: 1, suffix: '+', label: 'Proyectos' },
+    { value: 2, suffix: '+', label: 'Industrias' },
+    { value: 100, suffix: '%', label: 'Satisfacción' },
 ]
 
 const statRefs = ref<HTMLElement[]>([])
@@ -209,9 +208,10 @@ onUnmounted(() => {
 
     <!-- Ticker Section -->
     <Ticker :items="[
-        { text: 'E-commerce' },
+        { text: 'Análisis de datos', highlight: true },
+        { text: 'SEO y posicionamiento' },
         { text: 'Desarrollo web a medida', highlight: true },
-        { text: 'Aplicaciones móviles' },
+        { text: 'Dashboards y BI' },
         { text: 'Integraciones API', highlight: true },
         { text: 'SaaS' },
         { text: 'Mantenimiento y soporte', highlight: true },
@@ -227,13 +227,8 @@ onUnmounted(() => {
         </p>
 
         <div class="services-list">
-            <NuxtLink
-                v-for="(service, i) in services"
-                :key="service.title"
-                to="/contact"
-                class="service-row"
-                :class="{ 'service-row-large': i === 0 }"
-            >
+            <NuxtLink v-for="(service, i) in services" :key="service.title" to="/contact" class="service-row"
+                :class="{ 'service-row-large': i === 0 }">
                 <span class="service-index">{{ String(i + 1).padStart(2, '0') }}</span>
                 <span class="service-icon" v-html="service.icon"></span>
                 <span class="service-text">
@@ -241,7 +236,9 @@ onUnmounted(() => {
                     <span class="service-desc">{{ service.desc }}</span>
                 </span>
                 <span class="service-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
                 </span>
             </NuxtLink>
         </div>
@@ -253,33 +250,16 @@ onUnmounted(() => {
         <h2 class="h2">PORTAFOLIO</h2>
         <p class="sec-sub">Proyectos que transformaron negocios reales.</p>
         <div class="port-grid">
-            <div class="port-card">
+            <nuxt-link href="https://sinergia-landing-lyart.vercel.app/" target="_blank" class="port-card">
                 <div class="port-thumb t1">BL</div>
                 <div class="port-info">
-                    <p class="port-tag vivid-text">E-Commerce · Retail</p>
-                    <h3 class="port-name h3 bright-text">MODA PERÚ STORE</h3>
-                    <p class="bright-text">Tienda online con +200 productos, pagos con Yape y PagoEfectivo, entrega en
-                        todo Lima.</p>
+                    <p class="port-tag vivid-text">Sitio Web · Landing Page</p>
+                    <h3 class="port-name h3 bright-text">SINERGIA</h3>
+                    <p class="bright-text">Sinergia diseña e implementa stands, activaciones y merchandising que
+                        transforman espacios físicos en experiencias de marca memorables, enfocadas en atraer,
+                        interactuar y generar recordación.</p>
                 </div>
-            </div>
-            <div class="port-card">
-                <div class="port-thumb t2">BL</div>
-                <div class="port-info">
-                    <p class="port-tag vivid-text">Sistema · Salud</p>
-                    <h3 class="port-name h3 bright-text">CLÍNICA DIGITAL</h3>
-                    <p class="light-text">Plataforma de citas online, historial de pacientes y facturación
-                        electrónica SUNAT.</p>
-                </div>
-            </div>
-            <div class="port-card">
-                <div class="port-thumb t3">BL</div>
-                <div class="port-info">
-                    <p class="port-tag vivid-text">Web · Educación</p>
-                    <h3 class="port-name h3 bright-text">ACADEMIA LYNK</h3>
-                    <p class="light-text">Sitio web con landing de conversión, blog SEO y formulario de inscripción
-                        integrado.</p>
-                </div>
-            </div>
+            </nuxt-link>
         </div>
         <div class="block-button">
             <UiBtnLight variant="btn-secondary" to="portfolio">Ver todos los proyectos</UiBtnLight>
@@ -287,32 +267,22 @@ onUnmounted(() => {
     </section>
 
     <!-- About Section -->
-    <section class="sections divided light" id="nosotros">
-        <div>
-            <p class="top-title">Quiénes somos</p>
-            <h2 class="h2">TECNOLOGÍA CON ENFOQUE EN RESULTADOS</h2>
-
-            <p class="sec-sub">
-                En BlueLynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
-                optimizar sus procesos y fortalecer su presencia digital. Nos enfocamos en entender cada
-                negocio y construir herramientas que generen impacto real.
-            </p>
-
+    <section class="sections light mid" id="nosotros">
+        <p class="top-title">Quiénes somos</p>
+        <h2 class="h2">TECNOLOGÍA CON ENFOQUE EN RESULTADOS</h2>
+        <p class="sec-sub">
+            En BlueLynk desarrollamos soluciones tecnológicas a medida para empresas que buscan
+            optimizar sus procesos y fortalecer su presencia digital. Nos enfocamos en entender cada
+            negocio y construir herramientas que generen impacto real.
+        </p>
+        <div class="divided">
             <div class="about-stats">
-                <div
-                    v-for="(stat, i) in aboutStats"
-                    :key="stat.label"
-                    class="about-stat"
-                    :data-stat-index="i"
-                    :ref="el => { if (el) statRefs[i] = el as HTMLElement }"
-                >
+                <div v-for="(stat, i) in aboutStats" :key="stat.label" class="about-stat" :data-stat-index="i"
+                    :ref="el => { if (el) statRefs[i] = el as HTMLElement }">
                     <div class="about-stat-n">{{ statDisplay[i] }}{{ stat.suffix }}</div>
                     <div class="about-stat-l">{{ stat.label }}</div>
                 </div>
             </div>
-        </div>
-
-        <div>
             <div class="about-quote">
                 <div class="about-quote-mark">"</div>
                 <p class="light-text">
@@ -322,6 +292,10 @@ onUnmounted(() => {
                 <div class="about-quote-sig vivid-text">— BlueLynk</div>
             </div>
         </div>
+
+        <br>
+
+
     </section>
 
     <!--FAQ Section -->
@@ -343,13 +317,8 @@ onUnmounted(() => {
         </p>
 
         <div class="post-list">
-            <NuxtLink
-                v-for="(post, i) in latestPosts"
-                :key="post.id"
-                :to="`/blog/${post.slug}`"
-                class="post-row"
-                :class="{ 'post-row-featured': i === 0 }"
-            >
+            <NuxtLink v-for="(post, i) in latestPosts" :key="post.id" :to="`/blog/${post.slug}`" class="post-row"
+                :class="{ 'post-row-featured': i === 0 }">
                 <div class="post-row-image">
                     <img :src="post.image" :alt="post.imageAlt" loading="lazy">
                 </div>
@@ -360,7 +329,9 @@ onUnmounted(() => {
                     <p class="post-row-desc">{{ post.description }}</p>
                     <span class="post-row-link">
                         Leer artículo
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg>
                     </span>
                 </div>
             </NuxtLink>
@@ -463,7 +434,6 @@ onUnmounted(() => {
     padding-left: 1.25rem;
 }
 
-/* Desktop split: big card left half, two stacked right half */
 @media (min-width: 836px) {
     .services-list {
         margin-top: 2.5rem;
@@ -646,10 +616,15 @@ onUnmounted(() => {
 /* ============================================
    ABOUT STATS — loose statistics, no cards
 ============================================ */
+#nosotros .divided {
+    grid-template-columns: 7.5fr 5fr;
+}
+
 .about-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem 3rem;
+    justify-content: space-between;
+    gap: 2rem .5rem;
     margin-top: 3rem;
     padding-top: 2.5rem;
     border-top: 1px solid rgba(81, 112, 255, 0.18);
@@ -659,11 +634,13 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     gap: .35rem;
+    align-items: center;
+    min-width: 80px;
 }
 
 .about-stat-n {
     font-family: var(--font-title);
-    font-size: 3.2rem;
+    font-size: 3.5rem;
     line-height: 1;
     color: var(--color-primary);
     font-variant-numeric: tabular-nums;
@@ -810,6 +787,20 @@ onUnmounted(() => {
    RESPONSIVE
 ============================================ */
 @media (max-width: 835px) {
+    #nosotros .divided {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        gap: 1rem .5rem;
+        justify-content: center;
+    }
+
+    .about-stat {
+        align-items: center;
+        min-width: 170px;
+    }
+
     .service-row {
         grid-template-columns: auto 1fr auto;
         gap: 1rem;
@@ -834,11 +825,11 @@ onUnmounted(() => {
 @media (max-width: 475px) {
     .about-stats {
         gap: 2rem;
-        justify-content: space-between;
+        justify-content: center;
     }
 
-    .about-stat-n {
-        font-size: 2.4rem;
+    .about-stat {
+        align-items: center;
     }
 
     .service-row {
