@@ -101,7 +101,7 @@ const toggleMenu = () => {
             <div class="nav-items">
                 <div class="nav-items-col">
                     <div class="nav-socials">
-                        <a href="">WhatsApp</a>
+                        <a href="https://wa.me/51987151798?text=Hola,%20quiero%20información" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                         <!-- <a href="">Instagram</a> -->
                     </div>
                     <div class="nav-legal">

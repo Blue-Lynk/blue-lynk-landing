@@ -28,6 +28,17 @@
         font-size: 3rem;
     }
 
+    .mid-sm .sec-sub,
+    .mid-sm .h2,
+    .mid-sm .top-title {
+        justify-self: center;
+        text-align: center;
+    }
+
+    .contact-info {
+        justify-self: center;
+        align-items: center;
+    }
 
 }
 

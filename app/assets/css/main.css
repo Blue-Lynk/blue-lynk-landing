@@ -50,7 +50,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -124,11 +124,11 @@ section {
     width: 100%;
 }
 
-strong{
+strong {
     color: var(--color-bg-dark);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -178,7 +178,9 @@ em {
     margin-bottom: 3rem;
 }
 
-.mid .sec-sub, .mid .h2, .mid .top-title {
+.mid .sec-sub,
+.mid .h2,
+.mid .top-title {
     justify-self: center;
     text-align: center;
 }
