@@ -115,7 +115,7 @@ onMounted(() => {
     <!-- ── HERO ─────────────────────────────────────── -->
     <section class="hero">
         <div class="hero-glow"></div>
-        <div class="hero-content text-center">
+        <div class="hero-content text-center mid">
             <p class="top-title">Nosotros</p>
             <h1 class="hero-h h1">
                 Nosotros <em>sabemos</em> <br>

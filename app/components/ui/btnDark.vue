@@ -29,6 +29,7 @@ defineProps<{
 .btn-primary {
     background: var(--color-primary);
     color: var(--color-bg-lightest);
+    border: 1.5px solid var(--color-primary);
 }
 
 .btn-primary:hover {
@@ -39,7 +40,7 @@ defineProps<{
 .btn-secondary {
     background: transparent;
     color: var(--color-primary);
-    border: 1.5px solid rgba(244, 246, 255, 0.45);
+    border: 1.5px solid var(--color-primary);
 }
 
 .btn-secondary:hover {
