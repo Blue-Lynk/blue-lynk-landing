@@ -104,11 +104,11 @@ const toggleMenu = () => {
                         <a href="https://wa.me/51987151798?text=Hola,%20quiero%20información" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                         <!-- <a href="">Instagram</a> -->
                     </div>
-                    <div class="nav-legal">
+                    <!-- <div class="nav-legal">
                         <a href="">Privacy Policy</a>
                         <a href="">Terms & Conditions</a>
                         <a href="">Accesibility</a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="nav-items-col">
                     <div class="nav-prmary-links">

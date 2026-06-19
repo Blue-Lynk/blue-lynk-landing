@@ -25,12 +25,16 @@ useHead({
         <div class="hero-content content-center-md">
             <p class="top-title text-md-center">Nuestro trabajo</p>
             <h1 class="hero-h h1 text-md-center">
-                PROYECTOS QUE <em>TRANSFORMAN</em>
+                PROYECTOS <em>REALES</em> IMPACTO <em>REAL</em>
             </h1>
             <p class="sec-sub light-text text-md-center md">
                 Casos reales donde la tecnología ayudó a empresas a crecer y mejorar su presencia
                 digital.
             </p>
+            <div class="hero-btns">
+                <UiBtnLight variant="btn-primary" to="/contact">Agenda tu Cita</UiBtnLight>
+                <UiBtnLight variant="btn-secondary" to="/services">Ver Servicios</UiBtnLight>
+            </div>
         </div>
     </section>
 

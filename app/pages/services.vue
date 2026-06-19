@@ -192,7 +192,7 @@ const whyItems = [
                 <p class="top-title">Por qué elegirnos</p>
                 <h2 class="h2 bright-text">¿POR QUÉ<br>BLUELYNK?</h2>
             </div>
-            <p class="why-lead light-text">
+            <p class="why-lead light-text text-center">
                 No somos una agencia de plantillas. Cada solución se construye desde cero,
                 entendiendo tu negocio, tus procesos y tus objetivos reales.
             </p>

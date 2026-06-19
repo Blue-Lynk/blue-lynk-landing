@@ -115,13 +115,13 @@ onMounted(() => {
     <!-- ── HERO ─────────────────────────────────────── -->
     <section class="hero">
         <div class="hero-glow"></div>
-        <div class="hero-content text-center mid">
-            <p class="top-title">Nosotros</p>
+        <div class="hero-content content-center-md">
+            <p class="top-title">Conocenos</p>
             <h1 class="hero-h h1">
                 Nosotros <em>sabemos</em> <br>
                 lo que necesitas
             </h1>
-            <p class="sec-sub light-text md">
+            <p class="sec-sub light-text text-md-center md">
                 Porque tu negocio merece crecer sin complicaciones. <br class="responsive-ipad">
                 Elige claridad, elige resultados, elige Blue Lynk.
             </p>
@@ -159,8 +159,8 @@ onMounted(() => {
         <div class="filos-item filos-item--reverse">
             <span class="filos-ghost">CLARO</span>
             <div class="filos-content filos-content--right">
-                <h3 class="filos-heading">Sin jerga. Sin sorpresas.</h3>
-                <p>Explicamos todo en español simple. Sabes exactamente qué construimos, cuándo estará listo y cuánto cuesta. Siempre.</p>
+                <h3 class="filos-heading">Sin Complejidades. Sin sorpresas.</h3>
+                <p>Explicamos todo simple. Sabes exactamente qué construimos, cuándo estará listo y cuánto cuesta. Siempre.</p>
             </div>
         </div>
 
@@ -177,7 +177,7 @@ onMounted(() => {
     <div class="stats-strip">
         <div class="stats-inner">
             <div class="stat-block">
-                <span class="stat-num" data-val="30" data-suffix="+">0+</span>
+                <span class="stat-num" data-val="1" data-suffix="+">0+</span>
                 <span class="stat-label">Proyectos entregados</span>
             </div>
             <div class="stat-divider"></div>
@@ -202,7 +202,7 @@ onMounted(() => {
     <section class="manifesto-section sections darkest">
         <div class="manifesto-inner">
             <div class="manifesto-line"></div>
-            <p class="manifesto-label">Lo que creemos</p>
+            <p class="top-title">Lo que creemos</p>
             <div class="manifesto-body">
                 <span v-for="(word, i) in 'Sin plantillas. Sin atajos. Sin código spaghetti. Cada proyecto nace de una conversación honesta sobre lo que tu negocio realmente necesita.'.split(' ')" :key="i" class="manifesto-word">{{ word }}&nbsp;</span>
             </div>
@@ -384,14 +384,6 @@ onMounted(() => {
     background: rgba(244, 246, 255, 0.15);
     margin-bottom: 2.5rem;
     transform-origin: left center;
-}
-
-.manifesto-label {
-    font-size: .65rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
 }
 
 .manifesto-body {

@@ -19,11 +19,11 @@ const currentYear = new Date().getFullYear();
       © {{ currentYear }} Blue Lynk · Lima, Perú
     </small>
 
-    <nav class="foot-links" aria-label="Footer Navigation">
+    <!-- <nav class="foot-links" aria-label="Footer Navigation">
       <a v-for="link in links" :key="link.name" :href="link.href" class="foot-link vivid-text">
         {{ link.name }}
       </a>
-    </nav>
+    </nav> -->
   </footer>
 </template>
 
